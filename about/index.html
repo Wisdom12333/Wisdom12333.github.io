@@ -19,7 +19,7 @@
     
     
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-center-circle.min.css?v=1.0.2" rel="stylesheet">
+  <link href="/lib/pace/pace-theme-loading-bar.min.css?v=1.0.2" rel="stylesheet">
 
 
 
@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="须知由于此博客无评论功能,联系–E_Mail:Wisdom12333@163.com">
+<meta name="description" content="须知由于此博客无评论功能联系方式E_Mail:Wisdom12333@163.com">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
 <meta property="og:url" content="http://Wisdom12333.github.io/about/index.html">
 <meta property="og:site_name" content="Wisdom&#39;Blog">
-<meta property="og:description" content="须知由于此博客无评论功能,联系–E_Mail:Wisdom12333@163.com">
+<meta property="og:description" content="须知由于此博客无评论功能联系方式E_Mail:Wisdom12333@163.com">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2019-07-31T14:03:59.593Z">
+<meta property="og:updated_time" content="2019-08-01T00:36:14.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about">
-<meta name="twitter:description" content="须知由于此博客无评论功能,联系–E_Mail:Wisdom12333@163.com">
+<meta name="twitter:description" content="须知由于此博客无评论功能联系方式E_Mail:Wisdom12333@163.com">
 
 
 
@@ -315,7 +315,7 @@
       <div class="post-body">
         
         
-          <h1 id="须知"><a href="#须知" class="headerlink" title="须知"></a>须知</h1><p>由于此博客无评论功能,联系–E_Mail:<a href="mailto:Wisdom12333@163.com" target="_blank" rel="noopener">Wisdom12333@163.com</a></p>
+          <h1 id="须知"><a href="#须知" class="headerlink" title="须知"></a>须知</h1><p>由于此博客无评论功能<br>联系方式E_Mail:<a href="mailto:Wisdom12333@163.com" target="_blank" rel="noopener">Wisdom12333@163.com</a></p>
 
         
       </div>
@@ -334,6 +334,10 @@
 
 
           
+
+  
+    <div id="gitalk-container">
+    </div>
 
   
 
@@ -391,6 +395,15 @@
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分類</span>
+                
+              </div>
             
 
             
@@ -650,6 +663,21 @@
 
 
 
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '673827f37e74451e1e1c',
+          clientSecret: '1fef40a35117310ee50ae07f5eff6885837c0587',
+          repo: 'Wisdom12333.github.io',
+          owner: 'Wisdom12333',
+          admin: ['Wisdom12333'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
   
 
@@ -991,3 +1019,5 @@
 
 </body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
