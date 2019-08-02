@@ -107,7 +107,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -332,6 +332,7 @@
         
 
         <div class="post-meta">
+        
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -381,6 +382,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">Number of readings
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
           
 
           
@@ -440,12 +446,74 @@
     
 
     
+      <div>
+        <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<ul class="post-copyright">
+  <li class="post-copyright-title">
+    <strong>本文標題：</strong>
+    博客搭建问题及计划
+  </li>
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wisdom
+  </li>
+  <li class="post-copyright-created_at">
+    <strong>發佈時間：</strong>
+    2019-07-31
+  </li>
+  <li class="post-copyright-updated_at">
+    <strong>最後更新：</strong>
+    2019-08-01
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文鏈接：</strong>
+    <a href="http://Wisdom12333.github.io/2019/07/31/博客搭建问题及计划/" title="博客搭建问题及计划">http://Wisdom12333.github.io/2019/07/31/博客搭建问题及计划/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://Wisdom12333.github.io/2019/07/31/博客搭建问题及计划/" aria-label="复制成功！"></i></span>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>
+    本博客所有文章除特別聲明外,均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> 許可協議.轉載請注明出處
+  </li>
+</ul>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制文章链接成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+      });
+    });  
+</script>
+<!--<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wisdom
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文鏈接：</strong>
+    <a href="http://Wisdom12333.github.io/2019/07/31/博客搭建问题及计划/" title="博客搭建问题及计划">http://Wisdom12333.github.io/2019/07/31/博客搭建问题及计划/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>
+    本博客所有文章除特別聲明外,均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> 許可協議.轉載請注明出處
+  </li>
+</ul>-->
+
+      </div>
+    
 
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag">🏷 Hexo</a>
+            <a href="/tags/Hexo/" rel="tag">
+            <i class="fa fa-tag"></i> Hexo</a>
           
         </div>
       
@@ -652,7 +720,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Wisdom</span>
 
@@ -660,20 +728,34 @@
 </div>
 
 <!--
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 -->
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      Number of visitors
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      Has been visited
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      times
+    </span>
+  
+</div>
+
 
 
 
@@ -688,6 +770,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
