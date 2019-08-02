@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ACM_并查集,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="The ocean of learning has no end.">
-<meta name="keywords" content="ACM,Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://Wisdom12333.github.io/categories/index.html">
+<meta name="description" content="非常简单的一个并查集模板题.标准查找和压缩搞定.">
+<meta name="keywords" content="ACM_并查集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hdu 1213 How Many Tables 并查集">
+<meta property="og:url" content="http://Wisdom12333.github.io/2019/08/02/Hdu-1213-How-Many-Tables-并查集/index.html">
 <meta property="og:site_name" content="Wisdom&#39;Blog">
-<meta property="og:description" content="The ocean of learning has no end.">
+<meta property="og:description" content="非常简单的一个并查集模板题.标准查找和压缩搞定.">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2019-08-01T01:36:40.292Z">
+<meta property="og:updated_time" content="2019-08-02T09:24:58.206Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="The ocean of learning has no end.">
+<meta name="twitter:title" content="Hdu 1213 How Many Tables 并查集">
+<meta name="twitter:description" content="非常简单的一个并查集模板题.标准查找和压缩搞定.">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://Wisdom12333.github.io/categories/">
+  <link rel="canonical" href="http://Wisdom12333.github.io/2019/08/02/Hdu-1213-How-Many-Tables-并查集/">
 
 
 
 
 
-  <title>categories | Wisdom'Blog</title>
+  <title>Hdu 1213 How Many Tables 并查集 | Wisdom'Blog</title>
   
 
 
@@ -299,40 +299,293 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Wisdom12333.github.io/2019/08/02/Hdu-1213-How-Many-Tables-并查集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wisdom">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wisdom'Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共有 3 個分類
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM/">ACM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/ACM/">ACM</a><span class="category-list-count">1</span></li></ul></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Hdu 1213 How Many Tables 并查集</h1>
         
-      </div>
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-08-02T16:46:25+08:00">
+                2019-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>非常简单的一个并查集模板题.标准查找和压缩搞定.</p>
+<a id="more"></a>
+<h1 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h1><p>一种简单数据结构,介绍可以参考 <a href="https://blog.csdn.net/niushuai666/article/details/6662911" target="_blank" rel="noopener">HERE</a>.<br>这篇文章也是我一开始学习并查集时觉得最容易理解的一篇.<br>只是其中的路径压缩当时没能透彻理解</p>
+<h1 id="Describe"><a href="#Describe" class="headerlink" title="Describe"></a>Describe</h1><blockquote>
+<h1 id="How-Many-Tables"><a href="#How-Many-Tables" class="headerlink" title="How Many Tables"></a>How Many Tables</h1><p>Today is Ignatius’ birthday. He invites a lot of friends. Now it’s dinner time. Ignatius wants to know how many tables he needs at least. You have to notice that not all the friends know each other, and all the friends do not want to stay with strangers.<br>One important rule for this problem is that if I tell you A knows B, and B knows C, that means A, B, C know each other, so they can stay in one table.<br>For example: If I tell you A knows B, B knows C, and D knows E, so A, B, C can stay in one table, and D, E have to stay in the other one. So Ignatius needs 2 tables at least. </p>
+<h1 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h1><p>The input starts with an integer T(1&lt;=T&lt;=25) which indicate the number of test cases. Then T test cases follow. Each test case starts with two integers N and M(1&lt;=N,M&lt;=1000). N indicates the number of friends, the friends are marked from 1 to N. Then M lines follow. Each line consists of two integers A and B(A!=B), that means friend A and friend B know each other. There will be a blank line between two cases. </p>
+<h1 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h1><p>For each test case, just output how many tables Ignatius needs at least. Do NOT print any blanks. </p>
+<h1 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h1><p>2<br>5 3<br>1 2<br>2 3<br>4 5  </p>
+<h1 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h1><p>2<br>4</p>
+</blockquote>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>非常明显的一个并查集模板题,主要在于两个函数</p>
+<ul>
+<li>查找并且路径压缩</li>
+<li>合并  <h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2>循环或者递归找根节点,递归<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int find(int r)&#123;</span><br><span class="line">    return r==a[r]?r:find(a[r]);//a[r]为r上级</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>虽然简单,可并不一定好用,当数据过大时,使用递归容易导致爆栈.<br>除此之外,在每一次查询时都需要递归n次,完全可以在每一次中都将子节点上级更改为根节点.即路径压缩.这里使用循环会更加简单,也更保险.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int find(int x)&#123;</span><br><span class="line">    int r=x;</span><br><span class="line">    while(r!=a[r])r=a[r];      //循环找寻根节点r</span><br><span class="line">    int i=x,j;                 //i从查询子节点开始</span><br><span class="line">    while(i!=r)&#123;               //当i不为根节点时修改每一个节点上级为根节点</span><br><span class="line">        j=a[i];                //暂时存储上级进行下一次循环</span><br><span class="line">        a[i]=r;                //修改上级为根节点</span><br><span class="line">        i=j;</span><br><span class="line">    &#125;</span><br><span class="line">    return r;                  //返回根节点</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><p>当两个点的根不同的时候,将其中一个的根节点合并到另一个下.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void change(int x,int y)&#123;</span><br><span class="line">    x=find(x);</span><br><span class="line">    y=find(y);            //找寻根节点</span><br><span class="line">    a[x]=y;               //将x一脉合并至y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h2><p>最后只需要遍历数组a,每一个a[i]=i即代表一个桌子.</p>
+<h1 id="AC代码-c"><a href="#AC代码-c" class="headerlink" title="AC代码(c++)"></a>AC代码(c++)</h1><pre><code>#include&lt;stdio.h&gt;
+#include&lt;iostream&gt;
+using namespace std;
+int a[1005];
+void init(int n){
+    for(int i=1;i&lt;=n;i++)a[i]=i;  //初始化,注意是从1开始
+}
+int find(int x){
+    int r=x;
+    while(r!=a[r])r=a[r];      
+    int i=x,j;                 
+    while(i!=r){               
+        j=a[i];                
+        a[i]=r;               
+        i=j;
+    }
+    return r;         
+}
+void change(int x,int y){
+    x=find(x);
+    y=find(y);            
+    a[x]=y;           
+}
+int main()
+{
+    int T;
+    scanf(&quot;%d&quot;,&amp;T);
+    while(T--){
+        int n,m;
+        scanf(&quot;%d %d&quot;,&amp;n,&amp;m);
+        init(n);
+        int x,y;
+        for(int i=0;i&lt;m;i++){
+            scanf(&quot;%d %d&quot;,&amp;x,&amp;y);
+            change(x,y);
+        }
+        int table=0;
+        for(int i=1;i&lt;=n;i++)if(i==a[i])table++;
+        printf(&quot;%d\n&quot;,table);
+    }
+    return 0;
+}</code></pre>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+      <div>
+        <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<ul class="post-copyright">
+  <li class="post-copyright-title">
+    <strong>本文標題：</strong>
+    Hdu 1213 How Many Tables 并查集
+  </li>
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wisdom
+  </li>
+  <li class="post-copyright-created_at">
+    <strong>發佈時間：</strong>
+    2019-08-02
+  </li>
+  <li class="post-copyright-updated_at">
+    <strong>最後更新：</strong>
+    2019-08-02
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文鏈接：</strong>
+    <a href="http://Wisdom12333.github.io/2019/08/02/Hdu-1213-How-Many-Tables-并查集/" title="Hdu 1213 How Many Tables 并查集">http://Wisdom12333.github.io/2019/08/02/Hdu-1213-How-Many-Tables-并查集/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://Wisdom12333.github.io/2019/08/02/Hdu-1213-How-Many-Tables-并查集/" aria-label="复制成功！"></i></span>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>
+    本博客所有文章除特別聲明外,均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> 許可協議.轉載請注明出處
+  </li>
+</ul>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制文章链接成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+      });
+    });  
+</script>
+<!--<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wisdom
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文鏈接：</strong>
+    <a href="http://Wisdom12333.github.io/2019/08/02/Hdu-1213-How-Many-Tables-并查集/" title="Hdu 1213 How Many Tables 并查集">http://Wisdom12333.github.io/2019/08/02/Hdu-1213-How-Many-Tables-并查集/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>
+    本博客所有文章除特別聲明外,均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> 許可協議.轉載請注明出處
+  </li>
+</ul>-->
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ACM-并查集/" rel="tag">
+            <i class="fa fa-tag"></i> ACM_并查集</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/01/比赛回顾及总结/" rel="next" title="比赛回顾及总结">
+                <i class="fa fa-chevron-left"></i> 比赛回顾及总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -369,8 +622,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -454,6 +716,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#并查集"><span class="nav-number">1.</span> <span class="nav-text">并查集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Describe"><span class="nav-number">2.</span> <span class="nav-text">Describe</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-Many-Tables"><span class="nav-number">3.</span> <span class="nav-text">How Many Tables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Input"><span class="nav-number">4.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Output"><span class="nav-number">5.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sample-Input"><span class="nav-number">6.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sample-Output"><span class="nav-number">7.</span> <span class="nav-text">Sample Output</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">8.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找"><span class="nav-number">8.1.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并"><span class="nav-number">8.2.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main"><span class="nav-number">8.3.</span> <span class="nav-text">Main</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码-c"><span class="nav-number">9.</span> <span class="nav-text">AC代码(c++)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
