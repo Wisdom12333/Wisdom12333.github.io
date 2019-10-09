@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数论_容斥原理,">
 
 
 
@@ -86,18 +86,22 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta name="keywords" content="ACM,Blog">
+<meta name="description" content="刚做完这个题目,感觉是弄懂了,写一写加深理解.">
+<meta name="keywords" content="数论_容斥原理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://Wisdom12333.github.io/2019/07/31/hello-world/index.html">
+<meta property="og:title" content="UVA-11086-容斥原理">
+<meta property="og:url" content="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/index.html">
 <meta property="og:site_name" content="Wisdom&#39;Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="刚做完这个题目,感觉是弄懂了,写一写加深理解.">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2019-07-31T13:19:31.714Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/08/uhBOyQ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/08/uhrl40.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/10/08/uhsqSK.png">
+<meta property="og:updated_time" content="2019-10-09T02:31:26.649Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="UVA-11086-容斥原理">
+<meta name="twitter:description" content="刚做完这个题目,感觉是弄懂了,写一写加深理解.">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/10/08/uhBOyQ.png">
 
 
 
@@ -127,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://Wisdom12333.github.io/2019/07/31/hello-world/">
+  <link rel="canonical" href="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/">
 
 
 
 
 
-  <title>Hello World | Wisdom'Blog</title>
+  <title>UVA-11086-容斥原理 | Wisdom'Blog</title>
   
 
 
@@ -311,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Wisdom12333.github.io/2019/07/31/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wisdom">
@@ -328,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">UVA-11086-容斥原理</h1>
         
 
         <div class="post-meta">
@@ -341,8 +345,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-07-31T19:54:11+08:00">
-                2019-07-31
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-10-08T21:33:46+08:00">
+                2019-10-08
               </time>
             
 
@@ -351,6 +355,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -379,22 +405,33 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <p>刚做完这个题目,感觉是弄懂了,写一写加深理解.</p>
 <a id="more"></a>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<h2 id="容斥原理简单说明"><a href="#容斥原理简单说明" class="headerlink" title="容斥原理简单说明"></a>容斥原理简单说明</h2><p>容斥原理可以描述如下：</p>
+<blockquote>
+<p>要计算几个集合并集的大小，我们要先将所有单个集合的大小计算出来，然后减去所有两个集合相交的部分，再加回所有三个集合相交的部分，再减去所有四个集合相交的部分，依此类推，一直计算到所有集合相交的部分。</p>
+</blockquote>
+<p>举例如下图</p>
+<p><img src="https://s2.ax1x.com/2019/10/08/uhBOyQ.png" alt="avatar"></p>
+<p>其大小应为  </p>
+<blockquote>
+<p>S=(A+B+C)-(AB+AC+BC)+(ABC);</p>
+</blockquote>
+<h2 id="题意描述"><a href="#题意描述" class="headerlink" title="题意描述"></a>题意描述</h2><p>给定一个 M×N 矩形广场,以及 k 名啦啦队员,要求使每个队员在一个单位格中,并且第一行、最后一行、第一列、最后一列必须要有一人 如下图<br>(任意角落视为在一行及一列上)<br><img src="https://s2.ax1x.com/2019/10/08/uhrl40.png" alt="avatar"></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>根据刚学过的容斥原理,可以先计算无约束条件下的可能性数 S0 为:<br><img src="https://s2.ax1x.com/2019/10/08/uhsqSK.png" alt="avatar"></p>
+<p>然后假定事件如下</p>
+<ul>
+<li>A:第一行没有人</li>
+<li>B:最后一行没有人</li>
+<li>C:第一列没有人</li>
+<li>D:最后一列没有人</li>
+</ul>
+<p>那么可以得出所求答案为  </p>
+<blockquote>
+<p>S= S0<br>-(A+B+C+D)<br>+(AB+AC+AD+BC+BD+CD)<br>-(ABC+ABD+ACD+BCD)<br>+ABCD</p>
+</blockquote>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>在这里使用二进制来进行事件的表示<br>即0000-1111,每一位分别代表DCBA事件,1为发生,0则相反<br>同时在代码初始进行打表计算S0.</p>
+<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">1e-4</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000007</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">505</span>][<span class="number">505</span>];</span><br><span class="line"><span class="comment">//打表初始化</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</span><br><span class="line">    a[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">505</span>;i++)&#123;</span><br><span class="line">        a[i][<span class="number">0</span>]=a[i][i]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;i;j++)a[i][j]=(a[i<span class="number">-1</span>][j<span class="number">-1</span>]+a[i<span class="number">-1</span>][j])%N;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">int</span> T,casee=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n,m,k;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">16</span>;i++)&#123;  <span class="comment">//0000--1111,循环16次</span></span><br><span class="line">            <span class="keyword">int</span> r=n,c=m,b=<span class="number">0</span>;    <span class="comment">//b表示同时发生的事件数目(1,2,3,4)</span></span><br><span class="line">            <span class="keyword">if</span>(i&amp;<span class="number">1</span>)&#123;r--;b++;&#125;   <span class="comment">//事件A,可放置范围减少一行</span></span><br><span class="line">            <span class="keyword">if</span>(i&amp;<span class="number">2</span>)&#123;r--;b++;&#125;   <span class="comment">//事件B,同上</span></span><br><span class="line">            <span class="keyword">if</span>(i&amp;<span class="number">4</span>)&#123;c--;b++;&#125;   <span class="comment">//事件C,可放置范围减少一列</span></span><br><span class="line">            <span class="keyword">if</span>(i&amp;<span class="number">8</span>)&#123;c--;b++;&#125;   <span class="comment">//事件D,同上</span></span><br><span class="line">            <span class="keyword">if</span>(b&amp;<span class="number">1</span>)&#123;s=(s+N-a[r*c][k])%N;&#125;</span><br><span class="line">            <span class="keyword">else</span> s=(s+a[r*c][k])%N;  <span class="comment">//奇减偶加</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d: %d\n"</span>,casee++,s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -413,7 +450,7 @@
 <ul class="post-copyright">
   <li class="post-copyright-title">
     <strong>本文標題：</strong>
-    Hello World
+    UVA-11086-容斥原理
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
@@ -421,16 +458,16 @@
   </li>
   <li class="post-copyright-created_at">
     <strong>發佈時間：</strong>
-    2019-07-31
+    2019-10-08
   </li>
   <li class="post-copyright-updated_at">
     <strong>最後更新：</strong>
-    2019-07-31
+    2019-10-09
   </li>
   <li class="post-copyright-link">
     <strong>本文鏈接：</strong>
-    <a href="http://Wisdom12333.github.io/2019/07/31/hello-world/" title="Hello World">http://Wisdom12333.github.io/2019/07/31/hello-world/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://Wisdom12333.github.io/2019/07/31/hello-world/" aria-label="复制成功！"></i></span>
+    <a href="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/" title="UVA-11086-容斥原理">http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/" aria-label="复制成功！"></i></span>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>
@@ -457,7 +494,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文鏈接：</strong>
-    <a href="http://Wisdom12333.github.io/2019/07/31/hello-world/" title="Hello World">http://Wisdom12333.github.io/2019/07/31/hello-world/</a>
+    <a href="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/" title="UVA-11086-容斥原理">http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>
@@ -470,6 +507,13 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/数论-容斥原理/" rel="tag">
+            <i class="fa fa-tag"></i> 数论_容斥原理</a>
+          
+        </div>
+      
 
       
       
@@ -479,15 +523,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/09/02/学期规划/" rel="next" title="新学期规划">
+                <i class="fa fa-chevron-left"></i> 新学期规划
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/31/博客搭建问题及计划/" rel="prev" title="博客搭建问题及计划">
-                博客搭建问题及计划 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -647,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#容斥原理简单说明"><span class="nav-number">1.</span> <span class="nav-text">容斥原理简单说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意描述"><span class="nav-number">2.</span> <span class="nav-text">题意描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">2.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AC代码"><span class="nav-number">2.3.</span> <span class="nav-text">AC代码</span></a></li></ol></li></ol></div>
             
 
           </div>
