@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[UVA_10883_Supermean(组合数+数值优化)]]></title>
+    <url>%2F2019%2F10%2F11%2FUVA-10883-Supermean-%E7%BB%84%E5%90%88%E6%95%B0-%E6%95%B0%E5%80%BC%E4%BC%98%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[今天算是长见识了,看了一晚上终于搞清楚这个数值优化了 描述超级平均数,即n个数每每两个相邻计算平均数,直到只剩一个数.T组测试数据,每组包含n个数,求超级平均数.结果保留三位小数. 样例 123456789101112131415输入4 110.421.0 2.231 2 351 2 3 4 5输出Case #1: 10.400Case #2: 1.600Case #3: 2.000Case #4: 3.000 思路一开始用a0-a5模拟了一下,发现就是杨辉三角的第n行…然后就简单了,杨辉三角公式第n行第m个:C(n-1,m-1).组合数而已嘛.结果发现自己还是想的太简单……由于题目给的n范围直到5000,算不出这么大的组合数.百度得到的答案是对每一项取对数,最后再次方得到要求的答案.果然大佬的水平我是难以望其项背喽因为使用对数的情况下,对数乘除变为了加减,大大减小了数据.所以最后的代数就是 log(C(n - 1, i)) + log(a[i])) 同时因为平均数的关系,每一次都要除2,即最后的答案除以 2^(n-1) . 变成对数后就是 ( - (n - 1) * log(2)) #代码 1234567891011121314151617181920212223242526272829303132#include&lt;stdio.h&gt;#include&lt;iostream&gt;#include&lt;stdlib.h&gt;#include&lt;algorithm&gt;#include&lt;string.h&gt;#include&lt;string&gt;#include&lt;math.h&gt;#include&lt;map&gt;#include&lt;stack&gt;using namespace std;typedef long long ll;const double PI = acos(-1.0);const double eps=1e-4;const int N=1000007;int main()&#123; int T; scanf("%d",&amp;T); for(int cass=1;cass&lt;=T;cass++)&#123; int n; scanf("%d",&amp;n); double sum=0,c=0; for(int i=0;i&lt;n;i++)&#123; double a; scanf("%lf",&amp;a); if(a&gt;0)sum+=exp(c+log(a)-log(2)*(n-1)); else sum-=exp(c+log(a)-log(2)*(n-1));//由于对数没有负数,所以负即减 c+=log(n-i-1)-log(i+1); &#125; printf("Case #%d: %.3lf\n",cass,sum); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>组合数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[UVA-11086-容斥原理]]></title>
     <url>%2F2019%2F10%2F08%2FUVA-11086_%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%2F</url>
     <content type="text"><![CDATA[刚做完这个题目,感觉是弄懂了,写一写加深理解. 容斥原理简单说明容斥原理可以描述如下： 要计算几个集合并集的大小，我们要先将所有单个集合的大小计算出来，然后减去所有两个集合相交的部分，再加回所有三个集合相交的部分，再减去所有四个集合相交的部分，依此类推，一直计算到所有集合相交的部分。 举例如下图 其大小应为 S=(A+B+C)-(AB+AC+BC)+(ABC); 题意描述给定一个 M×N 矩形广场,以及 k 名啦啦队员,要求使每个队员在一个单位格中,并且第一行、最后一行、第一列、最后一列必须要有一人 如下图(任意角落视为在一行及一列上) 思路根据刚学过的容斥原理,可以先计算无约束条件下的可能性数 S0 为: 然后假定事件如下 A:第一行没有人 B:最后一行没有人 C:第一列没有人 D:最后一列没有人 那么可以得出所求答案为 S= S0-(A+B+C+D)+(AB+AC+AD+BC+BD+CD)-(ABC+ABD+ACD+BCD)+ABCD 代码实现在这里使用二进制来进行事件的表示即0000-1111,每一位分别代表DCBA事件,1为发生,0则相反同时在代码初始进行打表计算S0. AC代码1234567891011121314151617181920212223242526272829303132333435363738394041424344#include&lt;stdio.h&gt;#include&lt;iostream&gt;#include&lt;stdlib.h&gt;#include&lt;algorithm&gt;#include&lt;string.h&gt;#include&lt;string&gt;#include&lt;math.h&gt;#include&lt;map&gt;using namespace std;typedef long long ll;const double PI = acos(-1.0);const double eps=1e-4;const int N=1000007;int a[505][505];//打表初始化void init()&#123; memset(a,0,sizeof(a)); a[0][0]=1; for(int i=1;i&lt;505;i++)&#123; a[i][0]=a[i][i]=1; for(int j=1;j&lt;i;j++)a[i][j]=(a[i-1][j-1]+a[i-1][j])%N; &#125;&#125;int main()&#123; init(); int T,casee=1; scanf("%d",&amp;T); while(T--)&#123; int s=0; int n,m,k; scanf("%d %d %d",&amp;n,&amp;m,&amp;k); for(int i=0;i&lt;16;i++)&#123; //0000--1111,循环16次 int r=n,c=m,b=0; //b表示同时发生的事件数目(1,2,3,4) if(i&amp;1)&#123;r--;b++;&#125; //事件A,可放置范围减少一行 if(i&amp;2)&#123;r--;b++;&#125; //事件B,同上 if(i&amp;4)&#123;c--;b++;&#125; //事件C,可放置范围减少一列 if(i&amp;8)&#123;c--;b++;&#125; //事件D,同上 if(b&amp;1)&#123;s=(s+N-a[r*c][k])%N;&#125; else s=(s+a[r*c][k])%N; //奇减偶加 &#125; printf("Case %d: %d\n",casee++,s); &#125; return 0;&#125;]]></content>
