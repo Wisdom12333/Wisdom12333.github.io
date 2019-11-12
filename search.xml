@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[第四次课_数组与字符串]]></title>
+    <url>%2F2019%2F11%2F11%2F%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE-%E6%95%B0%E7%BB%84%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
+    <content type="text"><![CDATA[数组什么是数组数组一种用来存储一个固定大小的相同类型元素顺序集合的数据结构当我们需要使用到大量相同类型的变量,一般会使用数组Ex:50个同学的身高 它有什么用优点 只需要一次声明 查询便捷 遍历简单 缺点 大小确定后不能改变 只能存储一种类型 插入、删除效率低下 具体使用声明以五个整形变量为例 1234int a0,a1,a2,a3,a4;//普通的变量,一个个定义int a[5];//定义一个长度为5的整形数组 数组是从0开始,并用[]表示单独一个元素a[5]中包含了a[0]-a[4]这5个元素 初始化在c/c++中,可以一个个初始化数组,也可以一次性的初始化. 1int a[5]=&#123;1,2,3,4,5&#125;; 分别为a中的五个元素赋值, 注意{}中的元素个数必须小于或等于数组声明时的长度. 同时,也可以不完全的赋值.如 1int a[5]=&#123;1,2&#125;; 这条语句内只有两个元素,但是数组的长度却是5.此时就是将数组的前两个元素分别进行了初始化,即a[0]=1,a[1]=2.注意这种情况下默认其余元素的值为0.所以如果我们要定义一个全为0的数组,我们可以这样写 1int a[5]=&#123;0&#125;; 有时可以省略数组长度直接初始化,如 1int a[]=&#123;1,2,3,4,5&#125;; 这样创建的数组长度默认为初始化时元素的个数. 单个元素的赋值和普通变量的赋值是一样的 1a[3]=4; 这里是将数组a的第四个元素赋为4同样,数组元素的值也可以被赋给别的变量.比如: 1int b=a[2]; 实例一般而言,数组与for循环一起使用. 12345678#include&lt;stdio.h&gt;int main()&#123; int a[10]; for(int i=0;i&lt;10;i++)scanf("%d",&amp;a[i]); for(int i=0;i&lt;10;i++)printf("%d ",a[i]); printf("\n"); return 0;&#125; 上面是一个最简单的数组输入输出,定义一个长度为10的整形数组后,通过一个for循环对每一个a[i]进行输入或者输出. 注意 “int a[5]”和”a[5]”是不一样的一个代表的a数组的定义,一个是代表的单个的变量a[5]. 使用数组时要避免数组越界,即下标超过数组长度 一般数组长度定义要大于题目要求 二维数组如果说一维数组是一根线的一维坐标,那二维数组就是x-y坐标轴.它一般在矩阵中使用,即n行m列的情况. 1int a[5][5]; 上面就是一个5行5列的二维数组,我们可以将其看成一个5X5的方阵.二维数组的输入一般需要用到两个for循环. 1234for(int i=0;i&lt;n;i++) for(int j=0;j&lt;m;j++) scanf("%d",&amp;a[i][j]);//一个n行m列二维数组的输入. 字符串字符串,即字符的数组. 1char c[20]; 一般称”abcdefg”这样的句子或者单词为字符串.在字符串中最后一个字符为终止符,即’/0‘.但是字符串长度为所有字符数量,不包括终止符. 初始化123char c[30]="A String";char str[30]=&#123;'A',' ','S','t','r','i','n','g'&#125;;char s[]="A String"; 上面两种都是正确的初始化方法,前两个字符串的长度都是8,而数组长度是30.但是因为最后终止符的原因,这个数组只能容纳长度最大为29的字符串.而最后一个的数组长度默认为初始化时字符串长度加一,即9. 输入输出在C++中,字符数组的输入与其他数组的输入有一些不同. 1234char str[30];scanf("%s",str);cin&gt;&gt;str;gets(str); 当使用scanf的时候,str以指针传入,所以不需要&amp;,同时也是使用%s.但是因为scanf和cin空格结束输入的特性,如果需要输入带有空格的字符串时就不能使用他们.这时就需要用到gets() 函数.gets(str);,它的意思是读取一整行的字符,并将其赋值给str这个字符串.另外还有cin.getline函数也可以.. 输出也就大同小异了,只需要知道puts函数,它的输出遇到’/0’即终止符时结束,并且会自动加上换行. 1234printf("%s/n",str);puts(str);cout&lt;&lt;str&lt;&lt;endl;//这三个是一样的]]></content>
+      <tags>
+        <tag>ACM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[UVA-11038_计数]]></title>
+    <url>%2F2019%2F10%2F13%2FUVA-11038-%E8%AE%A1%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[好像没什么很好写的,稍微记一下类题做法 描述题目大意: 给出两个数n &lt; m ,要求从n写至m共有多少个0. 思路假定函数fun(x)计算由0至x的0数量,那么题目要求即f(m)-f(n-1).那么要求既是设计f函数.可以将x拆分为左右两部分,以中间一位为0情况,枚举左右两边可能的情况. 代码123456789101112131415161718192021222324252627282930313233343536//#include&lt;bits/stdc++.h&gt;#include&lt;stdio.h&gt;#include&lt;iostream&gt;#include&lt;stdlib.h&gt;#include&lt;algorithm&gt;#include&lt;string.h&gt;#include&lt;string&gt;#include&lt;math.h&gt;#include&lt;map&gt;#include&lt;stack&gt;using namespace std;typedef long long ll;const double PI = acos(-1.0);const double eps=1e-4;const int N=1000007;ll coun(ll a)&#123; if(a&lt;0)return 0; ll sum=1,b=0,flag=1; while(a&gt;=10)&#123; ll mid=a%10; a/=10; if(mid&gt;0)sum+=a*flag; else sum+=(a-1)*flag+(b+1); b+=mid*flag; flag*=10; &#125; return sum; //这里a为左边,b为右边,mid为中间位&#125;int main()&#123; ll n,m; while(scanf("%lld %lld",&amp;n,&amp;m)!=EOF&amp;&amp;n!=-1&amp;&amp;m!=-1)&#123; printf("%lld\n",coun(m)-coun(n-1)); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>计数问题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[UVA_10883_Supermean(组合数+数值优化)]]></title>
     <url>%2F2019%2F10%2F11%2FUVA-10883-Supermean-%E7%BB%84%E5%90%88%E6%95%B0-%E6%95%B0%E5%80%BC%E4%BC%98%E5%8C%96%2F</url>
     <content type="text"><![CDATA[今天算是长见识了,看了一晚上终于搞清楚这个数值优化了 描述超级平均数,即n个数每每两个相邻计算平均数,直到只剩一个数.T组测试数据,每组包含n个数,求超级平均数.结果保留三位小数. 样例 123456789101112131415输入4 110.421.0 2.231 2 351 2 3 4 5输出Case #1: 10.400Case #2: 1.600Case #3: 2.000Case #4: 3.000 思路一开始用a0-a5模拟了一下,发现就是杨辉三角的第n行…然后就简单了,杨辉三角公式第n行第m个:C(n-1,m-1).组合数而已嘛.结果发现自己还是想的太简单……由于题目给的n范围直到5000,算不出这么大的组合数.百度得到的答案是对每一项取对数,最后再次方得到要求的答案.果然大佬的水平我是难以望其项背喽因为使用对数的情况下,对数乘除变为了加减,大大减小了数据.所以最后的代数就是 log(C(n - 1, i)) + log(a[i])) 同时因为平均数的关系,每一次都要除2,即最后的答案除以 2^(n-1) . 变成对数后就是 ( - (n - 1) * log(2)) 代码1234567891011121314151617181920212223242526272829303132#include&lt;stdio.h&gt;#include&lt;iostream&gt;#include&lt;stdlib.h&gt;#include&lt;algorithm&gt;#include&lt;string.h&gt;#include&lt;string&gt;#include&lt;math.h&gt;#include&lt;map&gt;#include&lt;stack&gt;using namespace std;typedef long long ll;const double PI = acos(-1.0);const double eps=1e-4;const int N=1000007;int main()&#123; int T; scanf("%d",&amp;T); for(int cass=1;cass&lt;=T;cass++)&#123; int n; scanf("%d",&amp;n); double sum=0,c=0; for(int i=0;i&lt;n;i++)&#123; double a; scanf("%lf",&amp;a); if(a&gt;0)sum+=exp(c+log(a)-log(2)*(n-1)); else sum-=exp(c+log(-a)-log(2)*(n-1));//由于对数没有负数,所以负即减 c+=log(n-i-1)-log(i+1); &#125; printf("Case #%d: %.3lf\n",cass,sum); &#125; return 0;&#125;]]></content>

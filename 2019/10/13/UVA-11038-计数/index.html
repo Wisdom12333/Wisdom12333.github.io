@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="计数问题,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="The ocean of learning has no end.">
-<meta name="keywords" content="ACM,Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://Wisdom12333.github.io/categories/index.html">
+<meta name="description" content="好像没什么很好写的,稍微记一下类题做法">
+<meta name="keywords" content="计数问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVA-11038_计数">
+<meta property="og:url" content="http://Wisdom12333.github.io/2019/10/13/UVA-11038-计数/index.html">
 <meta property="og:site_name" content="Wisdom&#39;Blog">
-<meta property="og:description" content="The ocean of learning has no end.">
+<meta property="og:description" content="好像没什么很好写的,稍微记一下类题做法">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2019-08-01T01:36:40.292Z">
+<meta property="og:updated_time" content="2019-10-13T09:40:27.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="The ocean of learning has no end.">
+<meta name="twitter:title" content="UVA-11038_计数">
+<meta name="twitter:description" content="好像没什么很好写的,稍微记一下类题做法">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://Wisdom12333.github.io/categories/">
+  <link rel="canonical" href="http://Wisdom12333.github.io/2019/10/13/UVA-11038-计数/">
 
 
 
 
 
-  <title>categories | Wisdom'Blog</title>
+  <title>UVA-11038_计数 | Wisdom'Blog</title>
   
 
 
@@ -299,40 +299,236 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Wisdom12333.github.io/2019/10/13/UVA-11038-计数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wisdom">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wisdom'Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共有 2 個分類
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ACM/">ACM</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">UVA-11038_计数</h1>
         
-      </div>
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-10-13T17:32:23+08:00">
+                2019-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>好像没什么很好写的,稍微记一下类题做法</p>
+<a id="more"></a>
+<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>题目大意: 给出两个数n &lt; m ,要求从n写至m共有多少个0.  </p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>假定函数fun(x)计算由0至x的0数量,那么题目要求即f(m)-f(n-1).<br>那么要求既是设计f函数.<br>可以将x拆分为左右两部分,以中间一位为0情况,枚举左右两边可能的情况.</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#include&lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">1e-4</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000007</span>;</span><br><span class="line"><span class="function">ll <span class="title">coun</span><span class="params">(ll a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    ll sum=<span class="number">1</span>,b=<span class="number">0</span>,flag=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(a&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">        ll mid=a%<span class="number">10</span>;</span><br><span class="line">        a/=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">if</span>(mid&gt;<span class="number">0</span>)sum+=a*flag;</span><br><span class="line">        <span class="keyword">else</span> sum+=(a<span class="number">-1</span>)*flag+(b+<span class="number">1</span>);</span><br><span class="line">        b+=mid*flag;</span><br><span class="line">        flag*=<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">    <span class="comment">//这里a为左边,b为右边,mid为中间位</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll n,m;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%lld %lld"</span>,&amp;n,&amp;m)!=EOF&amp;&amp;n!=<span class="number">-1</span>&amp;&amp;m!=<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,coun(m)-coun(n<span class="number">-1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+      <div>
+        <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<ul class="post-copyright">
+  <li class="post-copyright-title">
+    <strong>本文標題：</strong>
+    UVA-11038_计数
+  </li>
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wisdom
+  </li>
+  <li class="post-copyright-created_at">
+    <strong>發佈時間：</strong>
+    2019-10-13
+  </li>
+  <li class="post-copyright-updated_at">
+    <strong>最後更新：</strong>
+    2019-10-13
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文鏈接：</strong>
+    <a href="http://Wisdom12333.github.io/2019/10/13/UVA-11038-计数/" title="UVA-11038_计数">http://Wisdom12333.github.io/2019/10/13/UVA-11038-计数/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://Wisdom12333.github.io/2019/10/13/UVA-11038-计数/" aria-label="复制成功！"></i></span>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>
+    本博客所有文章除特別聲明外,均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> 許可協議.轉載請注明出處
+  </li>
+</ul>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制文章链接成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+      });
+    });  
+</script>
+<!--<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wisdom
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文鏈接：</strong>
+    <a href="http://Wisdom12333.github.io/2019/10/13/UVA-11038-计数/" title="UVA-11038_计数">http://Wisdom12333.github.io/2019/10/13/UVA-11038-计数/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>
+    本博客所有文章除特別聲明外,均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> 許可協議.轉載請注明出處
+  </li>
+</ul>-->
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计数问题/" rel="tag">
+            <i class="fa fa-tag"></i> 计数问题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/11/UVA-10883-Supermean-组合数-数值优化/" rel="next" title="UVA_10883_Supermean(组合数+数值优化)">
+                <i class="fa fa-chevron-left"></i> UVA_10883_Supermean(组合数+数值优化)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/11/第四次课-数组与字符串/" rel="prev" title="第四次课_数组与字符串">
+                第四次课_数组与字符串 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -369,8 +565,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -454,6 +659,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#描述"><span class="nav-number">1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
