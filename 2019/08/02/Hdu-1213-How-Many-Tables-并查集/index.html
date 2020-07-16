@@ -401,8 +401,7 @@
       
 
       
-        <p>非常简单的一个并查集模板题.标准查找和压缩搞定.</p>
-<a id="more"></a>
+        <p>非常简单的一个并查集模板题.标准查找和压缩搞定.<br><a id="more"></a></p>
 <h1 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h1><p>一种简单数据结构,介绍可以参考 <a href="https://blog.csdn.net/niushuai666/article/details/6662911" target="_blank" rel="noopener">HERE</a>.<br>这篇文章也是我一开始学习并查集时觉得最容易理解的一篇.<br>只是其中的路径压缩当时没能透彻理解</p>
 <h1 id="Describe"><a href="#Describe" class="headerlink" title="Describe"></a>Describe</h1><blockquote>
 <h2 id="How-Many-Tables"><a href="#How-Many-Tables" class="headerlink" title="How Many Tables"></a>How Many Tables</h2><p>Today is Ignatius’ birthday. He invites a lot of friends. Now it’s dinner time. Ignatius wants to know how many tables he needs at least. You have to notice that not all the friends know each other, and all the friends do not want to stay with strangers.<br>One important rule for this problem is that if I tell you A knows B, and B knows C, that means A, B, C know each other, so they can stay in one table.<br>For example: If I tell you A knows B, B knows C, and D knows E, so A, B, C can stay in one table, and D, E have to stay in the other one. So Ignatius needs 2 tables at least. </p>
@@ -410,64 +409,18 @@
 <h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each test case, just output how many tables Ignatius needs at least. Do NOT print any blanks. </p>
 <h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>2<br>5 3<br>1 2<br>2 3<br>4 5  </p>
 <h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>2<br>4</p>
-</blockquote>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>非常明显的一个并查集模板题,主要在于两个函数</p>
 <ul>
 <li>查找并且路径压缩</li>
 <li>合并  </li>
 </ul>
-<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>循环或者递归找根节点,递归</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> r==a[r]?r:find(a[r]);<span class="comment">//a[r]为r上级</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>虽然简单,可并不一定好用,当数据过大时,使用递归容易导致爆栈.<br>除此之外,在每一次查询时都需要递归n次,完全可以在每一次中都将子节点上级更改为根节点.即路径压缩.这里使用循环会更加简单,也更保险.  </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> r=x;</span><br><span class="line">    <span class="keyword">while</span>(r!=a[r])r=a[r];      <span class="comment">//循环找寻根节点r</span></span><br><span class="line">    <span class="keyword">int</span> i=x,j;                 <span class="comment">//i从查询子节点开始</span></span><br><span class="line">    <span class="keyword">while</span>(i!=r)&#123;               <span class="comment">//当i不为根节点时修改每一个节点上级为根节点</span></span><br><span class="line">        j=a[i];                <span class="comment">//暂时存储上级进行下一次循环</span></span><br><span class="line">        a[i]=r;                <span class="comment">//修改上级为根节点</span></span><br><span class="line">        i=j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;                  <span class="comment">//返回根节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><p>当两个点的根不同的时候,将其中一个的根节点合并到另一个下.  </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    x=find(x);</span><br><span class="line">    y=find(y);            <span class="comment">//找寻根节点</span></span><br><span class="line">    a[x]=y;               <span class="comment">//将x一脉合并至y</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+</blockquote>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>循环或者递归找根节点,递归<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> r==a[r]?r:find(a[r]);<span class="comment">//a[r]为r上级</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>虽然简单,可并不一定好用,当数据过大时,使用递归容易导致爆栈.<br>除此之外,在每一次查询时都需要递归n次,完全可以在每一次中都将子节点上级更改为根节点.即路径压缩.这里使用循环会更加简单,也更保险.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> r=x;</span><br><span class="line">    <span class="keyword">while</span>(r!=a[r])r=a[r];      <span class="comment">//循环找寻根节点r</span></span><br><span class="line">    <span class="keyword">int</span> i=x,j;                 <span class="comment">//i从查询子节点开始</span></span><br><span class="line">    <span class="keyword">while</span>(i!=r)&#123;               <span class="comment">//当i不为根节点时修改每一个节点上级为根节点</span></span><br><span class="line">        j=a[i];                <span class="comment">//暂时存储上级进行下一次循环</span></span><br><span class="line">        a[i]=r;                <span class="comment">//修改上级为根节点</span></span><br><span class="line">        i=j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> r;                  <span class="comment">//返回根节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><p>当两个点的根不同的时候,将其中一个的根节点合并到另一个下.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    x=find(x);</span><br><span class="line">    y=find(y);            <span class="comment">//找寻根节点</span></span><br><span class="line">    a[x]=y;               <span class="comment">//将x一脉合并至y</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h2><p>最后只需要遍历数组a,每一个a[i]=i即代表一个桌子.</p>
-<h1 id="AC代码-c"><a href="#AC代码-c" class="headerlink" title="AC代码(c++)"></a>AC代码(c++)</h1><pre><code class="c++"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span>
-<span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="keyword">int</span> a[<span class="number">1005</span>];
-<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span></span>{
-    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)a[i]=i;  <span class="comment">//初始化,注意是从1开始</span>
-}
-<span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>{
-    <span class="keyword">int</span> r=x;
-    <span class="keyword">while</span>(r!=a[r])r=a[r];      
-    <span class="keyword">int</span> i=x,j;                 
-    <span class="keyword">while</span>(i!=r){               
-        j=a[i];                
-        a[i]=r;               
-        i=j;
-    }
-    <span class="keyword">return</span> r;         
-}
-<span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>{
-    x=find(x);
-    y=find(y);            
-    a[x]=y;           
-}
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>
-<span class="function"></span>{
-    <span class="keyword">int</span> T;
-    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);
-    <span class="keyword">while</span>(T--){
-        <span class="keyword">int</span> n,m;
-        <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m);
-        init(n);
-        <span class="keyword">int</span> x,y;
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++){
-            <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;x,&amp;y);
-            change(x,y);
-        }
-        <span class="keyword">int</span> table=<span class="number">0</span>;
-        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)<span class="keyword">if</span>(i==a[i])table++;
-        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,table);
-    }
-    <span class="keyword">return</span> <span class="number">0</span>;
-}</code></pre>
+<h1 id="AC代码-c"><a href="#AC代码-c" class="headerlink" title="AC代码(c++)"></a>AC代码(c++)</h1><p>```c++</p>
+<h1 id="include"><a href="#include" class="headerlink" title="include"></a>include<stdio.h></stdio.h></h1><h1 id="include-1"><a href="#include-1" class="headerlink" title="include"></a>include<iostream></iostream></h1><p>using namespace std;<br>int a[1005];<br>void init(int n){<br>    for(int i=1;i&lt;=n;i++)a[i]=i;  //初始化,注意是从1开始<br>}<br>int find(int x){<br>    int r=x;<br>    while(r!=a[r])r=a[r];<br>    int i=x,j;<br>    while(i!=r){<br>        j=a[i];<br>        a[i]=r;<br>        i=j;<br>    }<br>    return r;<br>}<br>void change(int x,int y){<br>    x=find(x);<br>    y=find(y);<br>    a[x]=y;<br>}<br>int main()<br>{<br>    int T;<br>    scanf(“%d”,&amp;T);<br>    while(T—){<br>        int n,m;<br>        scanf(“%d %d”,&amp;n,&amp;m);<br>        init(n);<br>        int x,y;<br>        for(int i=0;i&lt;m;i++){<br>            scanf(“%d %d”,&amp;x,&amp;y);<br>            change(x,y);<br>        }<br>        int table=0;<br>        for(int i=1;i&lt;=n;i++)if(i==a[i])table++;<br>        printf(“%d\n”,table);<br>    }<br>    return 0;<br>}</p>
 
       
     </div>
@@ -732,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#并查集"><span class="nav-number">1.</span> <span class="nav-text">并查集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Describe"><span class="nav-number">2.</span> <span class="nav-text">Describe</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-Many-Tables"><span class="nav-number">2.1.</span> <span class="nav-text">How Many Tables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">2.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">2.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Input"><span class="nav-number">2.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Output"><span class="nav-number">2.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找"><span class="nav-number">3.1.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并"><span class="nav-number">3.2.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main"><span class="nav-number">3.3.</span> <span class="nav-text">Main</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码-c"><span class="nav-number">4.</span> <span class="nav-text">AC代码(c++)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#并查集"><span class="nav-number">1.</span> <span class="nav-text">并查集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Describe"><span class="nav-number">2.</span> <span class="nav-text">Describe</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-Many-Tables"><span class="nav-number">2.1.</span> <span class="nav-text">How Many Tables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">2.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">2.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Input"><span class="nav-number">2.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Output"><span class="nav-number">2.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找"><span class="nav-number">3.1.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并"><span class="nav-number">3.2.</span> <span class="nav-text">合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main"><span class="nav-number">3.3.</span> <span class="nav-text">Main</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AC代码-c"><span class="nav-number">4.</span> <span class="nav-text">AC代码(c++)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include"><span class="nav-number">5.</span> <span class="nav-text">include</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-1"><span class="nav-number">6.</span> <span class="nav-text">include</span></a></li></ol></div>
             
 
           </div>
