@@ -12,15 +12,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[第四次课_数组与字符串]]></title>
-    <url>%2F2019%2F11%2F11%2F%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AF%BE-%E6%95%B0%E7%BB%84%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
-    <content type="text"><![CDATA[数组什么是数组数组一种用来存储一个固定大小的相同类型元素顺序集合的数据结构当我们需要使用到大量相同类型的变量,一般会使用数组Ex:50个同学的身高 它有什么用优点 只需要一次声明 查询便捷 遍历简单 缺点 大小确定后不能改变 只能存储一种类型 插入、删除效率低下 具体使用声明以五个整形变量为例 1234int a0,a1,a2,a3,a4;//普通的变量,一个个定义int a[5];//定义一个长度为5的整形数组 数组是从0开始,并用[]表示单独一个元素a[5]中包含了a[0]-a[4]这5个元素 初始化在c/c++中,可以一个个初始化数组,也可以一次性的初始化. 1int a[5]=&#123;1,2,3,4,5&#125;; 分别为a中的五个元素赋值, 注意{}中的元素个数必须小于或等于数组声明时的长度. 同时,也可以不完全的赋值.如 1int a[5]=&#123;1,2&#125;; 这条语句内只有两个元素,但是数组的长度却是5.此时就是将数组的前两个元素分别进行了初始化,即a[0]=1,a[1]=2.注意这种情况下默认其余元素的值为0.所以如果我们要定义一个全为0的数组,我们可以这样写 1int a[5]=&#123;0&#125;; 有时可以省略数组长度直接初始化,如 1int a[]=&#123;1,2,3,4,5&#125;; 这样创建的数组长度默认为初始化时元素的个数. 单个元素的赋值和普通变量的赋值是一样的 1a[3]=4; 这里是将数组a的第四个元素赋为4同样,数组元素的值也可以被赋给别的变量.比如: 1int b=a[2]; 实例一般而言,数组与for循环一起使用. 12345678#include&lt;stdio.h&gt;int main()&#123; int a[10]; for(int i=0;i&lt;10;i++)scanf("%d",&amp;a[i]); for(int i=0;i&lt;10;i++)printf("%d ",a[i]); printf("\n"); return 0;&#125; 上面是一个最简单的数组输入输出,定义一个长度为10的整形数组后,通过一个for循环对每一个a[i]进行输入或者输出. 注意 “int a[5]”和”a[5]”是不一样的一个代表的a数组的定义,一个是代表的单个的变量a[5]. 使用数组时要避免数组越界,即下标超过数组长度 一般数组长度定义要大于题目要求 二维数组如果说一维数组是一根线的一维坐标,那二维数组就是x-y坐标轴.它一般在矩阵中使用,即n行m列的情况. 1int a[5][5]; 上面就是一个5行5列的二维数组,我们可以将其看成一个5X5的方阵.二维数组的输入一般需要用到两个for循环. 1234for(int i=0;i&lt;n;i++) for(int j=0;j&lt;m;j++) scanf("%d",&amp;a[i][j]);//一个n行m列二维数组的输入. 字符串字符串,即字符的数组. 1char c[20]; 一般称”abcdefg”这样的句子或者单词为字符串.在字符串中最后一个字符为终止符,即’/0‘.但是字符串长度为所有字符数量,不包括终止符. 初始化123char c[30]="A String";char str[30]=&#123;'A',' ','S','t','r','i','n','g'&#125;;char s[]="A String"; 上面两种都是正确的初始化方法,前两个字符串的长度都是8,而数组长度是30.但是因为最后终止符的原因,这个数组只能容纳长度最大为29的字符串.而最后一个的数组长度默认为初始化时字符串长度加一,即9. 输入输出在C++中,字符数组的输入与其他数组的输入有一些不同. 1234char str[30];scanf("%s",str);cin&gt;&gt;str;gets(str); 当使用scanf的时候,str以指针传入,所以不需要&amp;,同时也是使用%s.但是因为scanf和cin空格结束输入的特性,如果需要输入带有空格的字符串时就不能使用他们.这时就需要用到gets() 函数.gets(str);,它的意思是读取一整行的字符,并将其赋值给str这个字符串.另外还有cin.getline函数也可以.. 输出也就大同小异了,只需要知道puts函数,它的输出遇到’/0’即终止符时结束,并且会自动加上换行. 1234printf("%s/n",str);puts(str);cout&lt;&lt;str&lt;&lt;endl;//这三个是一样的 以上就是数组与字符串了,其实数组就是更加灵活的变量而已.总之,实践出真知,多做题,就会发现数组很简单]]></content>
-      <tags>
-        <tag>ACM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[UVA-11038_计数]]></title>
+    <title><![CDATA[UVA_11038_计数]]></title>
     <url>%2F2019%2F10%2F13%2FUVA-11038-%E8%AE%A1%E6%95%B0%2F</url>
     <content type="text"><![CDATA[好像没什么很好写的,稍微记一下类题做法 描述题目大意: 给出两个数n &lt; m ,要求从n写至m共有多少个0. 思路假定函数fun(x)计算由0至x的0数量,那么题目要求即f(m)-f(n-1).那么要求既是设计f函数.可以将x拆分为左右两部分,以中间一位为0情况,枚举左右两边可能的情况. 代码123456789101112131415161718192021222324252627282930313233343536//#include&lt;bits/stdc++.h&gt;#include&lt;stdio.h&gt;#include&lt;iostream&gt;#include&lt;stdlib.h&gt;#include&lt;algorithm&gt;#include&lt;string.h&gt;#include&lt;string&gt;#include&lt;math.h&gt;#include&lt;map&gt;#include&lt;stack&gt;using namespace std;typedef long long ll;const double PI = acos(-1.0);const double eps=1e-4;const int N=1000007;ll coun(ll a)&#123; if(a&lt;0)return 0; ll sum=1,b=0,flag=1; while(a&gt;=10)&#123; ll mid=a%10; a/=10; if(mid&gt;0)sum+=a*flag; else sum+=(a-1)*flag+(b+1); b+=mid*flag; flag*=10; &#125; return sum; //这里a为左边,b为右边,mid为中间位&#125;int main()&#123; ll n,m; while(scanf("%lld %lld",&amp;n,&amp;m)!=EOF&amp;&amp;n!=-1&amp;&amp;m!=-1)&#123; printf("%lld\n",coun(m)-coun(n-1)); &#125; return 0;&#125;]]></content>
       <categories>
@@ -42,7 +34,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[UVA-11086-容斥原理]]></title>
+    <title><![CDATA[UVA_11086_容斥原理]]></title>
     <url>%2F2019%2F10%2F08%2FUVA-11086_%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%2F</url>
     <content type="text"><![CDATA[刚做完这个题目,感觉是弄懂了,写一写加深理解. 容斥原理简单说明容斥原理可以描述如下： 要计算几个集合并集的大小，我们要先将所有单个集合的大小计算出来，然后减去所有两个集合相交的部分，再加回所有三个集合相交的部分，再减去所有四个集合相交的部分，依此类推，一直计算到所有集合相交的部分。 举例如下图 其大小应为 S=(A+B+C)-(AB+AC+BC)+(ABC); 题意描述给定一个 M×N 矩形广场,以及 k 名啦啦队员,要求使每个队员在一个单位格中,并且第一行、最后一行、第一列、最后一列必须要有一人 如下图(任意角落视为在一行及一列上) 思路根据刚学过的容斥原理,可以先计算无约束条件下的可能性数 S0 为: 然后假定事件如下 A:第一行没有人 B:最后一行没有人 C:第一列没有人 D:最后一列没有人 那么可以得出所求答案为 S= S0-(A+B+C+D)+(AB+AC+AD+BC+BD+CD)-(ABC+ABD+ACD+BCD)+ABCD 代码实现在这里使用二进制来进行事件的表示即0000-1111,每一位分别代表DCBA事件,1为发生,0则相反同时在代码初始进行打表计算S0. AC代码1234567891011121314151617181920212223242526272829303132333435363738394041424344#include&lt;stdio.h&gt;#include&lt;iostream&gt;#include&lt;stdlib.h&gt;#include&lt;algorithm&gt;#include&lt;string.h&gt;#include&lt;string&gt;#include&lt;math.h&gt;#include&lt;map&gt;using namespace std;typedef long long ll;const double PI = acos(-1.0);const double eps=1e-4;const int N=1000007;int a[505][505];//打表初始化void init()&#123; memset(a,0,sizeof(a)); a[0][0]=1; for(int i=1;i&lt;505;i++)&#123; a[i][0]=a[i][i]=1; for(int j=1;j&lt;i;j++)a[i][j]=(a[i-1][j-1]+a[i-1][j])%N; &#125;&#125;int main()&#123; init(); int T,casee=1; scanf("%d",&amp;T); while(T--)&#123; int s=0; int n,m,k; scanf("%d %d %d",&amp;n,&amp;m,&amp;k); for(int i=0;i&lt;16;i++)&#123; //0000--1111,循环16次 int r=n,c=m,b=0; //b表示同时发生的事件数目(1,2,3,4) if(i&amp;1)&#123;r--;b++;&#125; //事件A,可放置范围减少一行 if(i&amp;2)&#123;r--;b++;&#125; //事件B,同上 if(i&amp;4)&#123;c--;b++;&#125; //事件C,可放置范围减少一列 if(i&amp;8)&#123;c--;b++;&#125; //事件D,同上 if(b&amp;1)&#123;s=(s+N-a[r*c][k])%N;&#125; else s=(s+a[r*c][k])%N; //奇减偶加 &#125; printf("Case %d: %d\n",casee++,s); &#125; return 0;&#125;]]></content>
       <categories>
@@ -53,12 +45,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[新学期规划]]></title>
-    <url>%2F2019%2F09%2F02%2F%E5%AD%A6%E6%9C%9F%E8%A7%84%E5%88%92%2F</url>
-    <content type="text"><![CDATA[本期课程 概率论 毛概 数据结构 计算机网络 大学英语 电路与模拟电子技术基础 学科竞赛 大学生创新创业指导 因为也才上了一天课,只简单归纳一下. 要认真听的课 数据结构 这应该是这个学期最为重要的一门课程了吧,很实用也很难,光靠自学是不够的 计算机网络 目前来看对于专业有用,同时有点兴趣 没那么重要的课 概率论 虽然要学,但是没那么重要.稍微理解应该就可 电路 不知道什么东西,但还是听一下 学科竞赛 感觉会有用 基本不需要听的课 毛概 没什么好说的,自己该干嘛干嘛 创新创业 还不知道什么东西 英语 学不到什么东西,就学学单词,不如不听 目前规划这个学期要做的 Java得学一学,看一看 四级 九月国二过了 c++认真学好 算法不能丢]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hdu 1213 How Many Tables 并查集]]></title>
+    <title><![CDATA[Hdu_1213_How Many Tables 并查集]]></title>
     <url>%2F2019%2F08%2F02%2FHdu-1213-How-Many-Tables-%E5%B9%B6%E6%9F%A5%E9%9B%86%2F</url>
     <content type="text"><![CDATA[非常简单的一个并查集模板题.标准查找和压缩搞定. 并查集一种简单数据结构,介绍可以参考 HERE.这篇文章也是我一开始学习并查集时觉得最容易理解的一篇.只是其中的路径压缩当时没能透彻理解 Describe How Many TablesToday is Ignatius’ birthday. He invites a lot of friends. Now it’s dinner time. Ignatius wants to know how many tables he needs at least. You have to notice that not all the friends know each other, and all the friends do not want to stay with strangers.One important rule for this problem is that if I tell you A knows B, and B knows C, that means A, B, C know each other, so they can stay in one table.For example: If I tell you A knows B, B knows C, and D knows E, so A, B, C can stay in one table, and D, E have to stay in the other one. So Ignatius needs 2 tables at least. InputThe input starts with an integer T(1&lt;=T&lt;=25) which indicate the number of test cases. Then T test cases follow. Each test case starts with two integers N and M(1&lt;=N,M&lt;=1000). N indicates the number of friends, the friends are marked from 1 to N. Then M lines follow. Each line consists of two integers A and B(A!=B), that means friend A and friend B know each other. There will be a blank line between two cases. OutputFor each test case, just output how many tables Ignatius needs at least. Do NOT print any blanks. Sample Input25 31 22 34 5 Sample Output24 思路非常明显的一个并查集模板题,主要在于两个函数 查找并且路径压缩 合并 查找循环或者递归找根节点,递归 123int find(int r)&#123; return r==a[r]?r:find(a[r]);//a[r]为r上级&#125; 虽然简单,可并不一定好用,当数据过大时,使用递归容易导致爆栈.除此之外,在每一次查询时都需要递归n次,完全可以在每一次中都将子节点上级更改为根节点.即路径压缩.这里使用循环会更加简单,也更保险. 1234567891011int find(int x)&#123; int r=x; while(r!=a[r])r=a[r]; //循环找寻根节点r int i=x,j; //i从查询子节点开始 while(i!=r)&#123; //当i不为根节点时修改每一个节点上级为根节点 j=a[i]; //暂时存储上级进行下一次循环 a[i]=r; //修改上级为根节点 i=j; &#125; return r; //返回根节点&#125; 合并当两个点的根不同的时候,将其中一个的根节点合并到另一个下. 12345void change(int x,int y)&#123; x=find(x); y=find(y); //找寻根节点 a[x]=y; //将x一脉合并至y&#125; Main最后只需要遍历数组a,每一个a[i]=i即代表一个桌子. AC代码(c++)#include&lt;stdio.h&gt; #include&lt;iostream&gt; using namespace std; int a[1005]; void init(int n){ for(int i=1;i&lt;=n;i++)a[i]=i; //初始化,注意是从1开始 } int find(int x){ int r=x; while(r!=a[r])r=a[r]; int i=x,j; while(i!=r){ j=a[i]; a[i]=r; i=j; } return r; } void change(int x,int y){ x=find(x); y=find(y); a[x]=y; } int main() { int T; scanf("%d",&amp;T); while(T--){ int n,m; scanf("%d %d",&amp;n,&amp;m); init(n); int x,y; for(int i=0;i&lt;m;i++){ scanf("%d %d",&amp;x,&amp;y); change(x,y); } int table=0; for(int i=1;i&lt;=n;i++)if(i==a[i])table++; printf("%d\n",table); } return 0; }]]></content>
       <categories>
@@ -66,25 +53,6 @@
       </categories>
       <tags>
         <tag>ACM_并查集</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[更新日志]]></title>
-    <url>%2F2019%2F08%2F01%2F%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%2F</url>
-    <content type="text"><![CDATA[此贴伴随本人博客更新更新记录 MY BLOG 从简陋到完善 2019.8.1更新 新增了鼠标点击出现爱心效果. 解决了困扰已久的Gitalk评论功能 解决了标签与分类无法正常显示的问题 接下来的计划 增加分享功能 加入搜索引擎 2019.8.2更新 新增右下角网页阅读百分比 新增文末信息 还有一些其他小东西 不记得啥时候的更新 现在已经可以在Google搜索到本博客了]]></content>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[博客搭建问题及计划]]></title>
-    <url>%2F2019%2F07%2F31%2F%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E5%8F%8A%E8%AE%A1%E5%88%92%2F</url>
-    <content type="text"><![CDATA[在GitHub Page及使用Hexo中遇到了很多问题.今天,通过自己摸索以及Google算是初步完成了博客的搭建.这篇博文(第一篇)便来随便谈一谈在博客搭建中遇到的各种问题. 初始其实一段时间以前就有一个拥有自己博客的想法.只是一直没有付诸于实践,毕竟作为一个普通大学生,写博客这种事情感觉并不是一件很普遍的事情.而我最终做出了这么一个博客,还是暑假在学校这么多天学习后思想的转变,同时也要感谢Ender学长讲课时让我知道了GitHub Page(本博客的外观许多地方也是参考的学长). 学长的博客 Click Here 然后就是正式的将想法转化为行动,偶然一天晚自习写完一个题目后就突然想到了一开始其实以为这个东西会很难,可是实际上最难的只是去做而已同时也要感谢知乎,GitHub上许许多多的前辈写的教程,没有他们我很难能做出现在一个令我满意的博客 实践拥有一个像我这样好看的博客其实只需要三件东西 git GitHub账号 npm 很简单的东西,可我还是遇到了超级多的大大小小的问题.原本博客外观几乎完全完成了,为了一个Gitalk的评论功能,尝试了各种各样的教程可是最后还是没成功,反倒是不得不把整个博客推到重做.不然这篇博文也许会在今天上午写出来(但是晚自习写也没事,代价就是今天一天没有写题目)尝试了Google上一半的教程,还是没能做出评论功能主要是Gitalk差不多是所有可以用的里面外观最符合我的审美的所以不要为我的博客没有评论区而奇怪如果我成功了,也许你可以在这个博客里面搜索到一篇建立评论区的教程 实现本来是打算先写出这篇博文的,可是到我写的时候博客已经搭建好了,所以原先计划的目标板块就变成了目前这个 已实现的功能 自设背景及背景透明 头像显示 社交链接显示 博客图标 这些都是超级基础的东西,可是也是一个博客最根本、必要的东西. 目标既然已经做好了自己的博客,自然要坚持更新他此博客未来除了记录自己的学习进度,学习心得,还会有一些自己生活中的随笔最重要的并不是有多少人来看他(所以放弃了网页访问量统计),而是通过他来记录自己能力的不断增强]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
