@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="数论_容斥原理,">
+  <meta name="keywords" content="博弈论,">
 
 
 
@@ -86,22 +86,18 @@
 
 
 
-<meta name="description" content="刚做完这个题目,感觉是弄懂了,写一写加深理解.">
-<meta name="keywords" content="数论_容斥原理">
+<meta name="description" content="D. Dessert TimeSimple博弈">
+<meta name="keywords" content="博弈论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UVA_11086_容斥原理">
-<meta property="og:url" content="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/index.html">
+<meta property="og:title" content="十七届中国计量大学程序设计竞赛_D(博弈)">
+<meta property="og:url" content="http://Wisdom12333.github.io/2020/09/27/十七届中国计量大学程序设计竞赛D(博弈)/index.html">
 <meta property="og:site_name" content="Wisdom&#39;Blog">
-<meta property="og:description" content="刚做完这个题目,感觉是弄懂了,写一写加深理解.">
+<meta property="og:description" content="D. Dessert TimeSimple博弈">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:image" content="https://s2.ax1x.com/2019/10/08/uhBOyQ.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/10/08/uhrl40.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/10/08/uhsqSK.png">
-<meta property="og:updated_time" content="2020-07-16T10:32:15.740Z">
+<meta property="og:updated_time" content="2020-09-27T14:03:46.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UVA_11086_容斥原理">
-<meta name="twitter:description" content="刚做完这个题目,感觉是弄懂了,写一写加深理解.">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/10/08/uhBOyQ.png">
+<meta name="twitter:title" content="十七届中国计量大学程序设计竞赛_D(博弈)">
+<meta name="twitter:description" content="D. Dessert TimeSimple博弈">
 
 
 
@@ -131,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/">
+  <link rel="canonical" href="http://Wisdom12333.github.io/2020/09/27/十七届中国计量大学程序设计竞赛D(博弈)/">
 
 
 
 
 
-  <title>UVA_11086_容斥原理 | Wisdom'Blog</title>
+  <title>十七届中国计量大学程序设计竞赛_D(博弈) | Wisdom'Blog</title>
   
 
 
@@ -315,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/">
+    <link itemprop="mainEntityOfPage" href="http://Wisdom12333.github.io/2020/09/27/十七届中国计量大学程序设计竞赛D(博弈)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wisdom">
@@ -332,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">UVA_11086_容斥原理</h1>
+          <h1 class="post-title" itemprop="name headline">十七届中国计量大学程序设计竞赛_D(博弈)</h1>
         
 
         <div class="post-meta">
@@ -345,8 +341,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-10-08T21:33:46+08:00">
-                2019-10-08
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-09-27T21:33:59+08:00">
+                2020-09-27
               </time>
             
 
@@ -405,32 +401,39 @@
       
 
       
-        <p>刚做完这个题目,感觉是弄懂了,写一写加深理解.<br><a id="more"></a></p>
-<h2 id="容斥原理简单说明"><a href="#容斥原理简单说明" class="headerlink" title="容斥原理简单说明"></a>容斥原理简单说明</h2><p>容斥原理可以描述如下：</p>
+        <p>D. Dessert Time<br>Simple博弈<br><a id="more"></a></p>
 <blockquote>
-<p>要计算几个集合并集的大小，我们要先将所有单个集合的大小计算出来，然后减去所有两个集合相交的部分，再加回所有三个集合相交的部分，再减去所有四个集合相交的部分，依此类推，一直计算到所有集合相交的部分。</p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a><font color="66CCFF">Description</font></h1><h2 id="LINK"><a href="#LINK" class="headerlink" title="LINK"></a><a href="https://ac.nowcoder.com/acm/contest/7591/D" target="_blank" rel="noopener">LINK</a></h2><p>The party began, the greasy uncle was playing cards, the fat otaku was eating, and the little beauty was drawing.<br>Because there were too many steaks just grilled, ZJH found that he could not finish it, so he gave some of it to others. After LZT felt too greasy, he asked the kitchen to make some cakes for dessert. The kitchen put the finished cakes into many plates, each with several cakes.<br>At this time, LZT was talking with a friend. To show humility, people do not like to take the last plate and persuade each other to take more. So LZT and his friends always took a plate which has no fewer cakes than the other take last time. When a person found that there is no plate on the table that has no fewer cakes than the other take last time, he must take all the remaining cakes (if had), we usually called it “dōu dǐ” in Chinese.<br>Neither of them wanted to take the last plate, and Chairman Luo could not personally play due to his status, so the task was handed over to his assistant, that is, you.  </p>
+<h2 id="Now-given-a-number-N-indicating-the-number-of-plates-and-an-array-a-representing-the-number-of-cakes-on-each-plate-During-one-move-the-player-chooses-an-existing-number-x-and-takes-away-a-plate-with-cake-number-x-The-next-player’s-choice-of-x-cannot-be-less-than-this-time-Of-course-the-first-choice-is-unlimited-The-person-who-takes-the-last-plate-loses-and-the-person-who-cannot-choose-x-will-take-all-the-plates-left-on-the-table-You-are-asked-to-tell-Chairman-Luo-the-first-x-to-win-or-1-if-he-cannot-win-Because-of-his-status-Chairman-Luo-will-always-take-the-first-move"><a href="#Now-given-a-number-N-indicating-the-number-of-plates-and-an-array-a-representing-the-number-of-cakes-on-each-plate-During-one-move-the-player-chooses-an-existing-number-x-and-takes-away-a-plate-with-cake-number-x-The-next-player’s-choice-of-x-cannot-be-less-than-this-time-Of-course-the-first-choice-is-unlimited-The-person-who-takes-the-last-plate-loses-and-the-person-who-cannot-choose-x-will-take-all-the-plates-left-on-the-table-You-are-asked-to-tell-Chairman-Luo-the-first-x-to-win-or-1-if-he-cannot-win-Because-of-his-status-Chairman-Luo-will-always-take-the-first-move" class="headerlink" title="Now given a number N, indicating the number of plates, and an array a, representing the number of cakes on each plate. During one move, the player chooses an existing number x and takes away a plate with cake number x. The next player’s choice of x cannot be less than this time. Of course, the first choice is unlimited. The person who takes the last plate loses, and the person who cannot choose x will take all the plates left on the table. You are asked to tell Chairman Luo the first x to win, or -1 if he cannot win. Because of his status, Chairman Luo will always take the first move."></a>Now given a number N, indicating the number of plates, and an array a, representing the number of cakes on each plate. During one move, the player chooses an existing number x and takes away a plate with cake number x. The next player’s choice of x cannot be less than this time. Of course, the first choice is unlimited. The person who takes the last plate loses, and the person who cannot choose x will take all the plates left on the table. You are asked to tell Chairman Luo the first x to win, or -1 if he cannot win. Because of his status, Chairman Luo will always take the first move.</h2><hr>
+<h1 id="Simple-Out"><a href="#Simple-Out" class="headerlink" title="Simple Out"></a><font color="66CCFF">Simple Out</font></h1><p>For each test case, each line contains an integer, indicating the first x Chairman Luo should choose to win or -1 if he can’t win.</p>
 </blockquote>
-<p>举例如下图</p>
-<p><img src="https://s2.ax1x.com/2019/10/08/uhBOyQ.png" alt="avatar"></p>
-<p>其大小应为  </p>
-<blockquote>
-<p>S=(A+B+C)-(AB+AC+BC)+(ABC);</p>
+<h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a><font color="66CCFF">题目大意</font></h1><blockquote>
+<p>现在有N盘蛋糕,每一盘中有 $ a_i $ 块蛋糕,</p>
+<h2 id="现在先手后手两人分别拿-每次需要选定一个蛋糕数量大于上一轮的盘子拿走-拿走最后一盘的人判负-另外若没有任何一盘蛋糕比上一盘拿的数量多-则需要直接拿走剩下所有盘子-即直接判负"><a href="#现在先手后手两人分别拿-每次需要选定一个蛋糕数量大于上一轮的盘子拿走-拿走最后一盘的人判负-另外若没有任何一盘蛋糕比上一盘拿的数量多-则需要直接拿走剩下所有盘子-即直接判负" class="headerlink" title="现在先手后手两人分别拿,每次需要选定一个蛋糕数量大于上一轮的盘子拿走,拿走最后一盘的人判负,另外若没有任何一盘蛋糕比上一盘拿的数量多,则需要直接拿走剩下所有盘子,即直接判负.  "></a>现在先手后手两人分别拿,每次需要选定一个蛋糕数量大于上一轮的盘子拿走,拿走最后一盘的人判负,另外若没有任何一盘蛋糕比上一盘拿的数量多,则需要直接拿走剩下所有盘子,即直接判负.  </h2><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>十分明显的一个博弈题目,首先可以想到,如果有一盘数量最大则先手直接胜利,如(6,5,4,3,2,1)可直接拿走6.<br>然后想到最大数量的盘子有奇数个仍为先手胜利,向下考虑偶数情况,发现为偶数时最大数量盘子个数不影响局势.此时需考虑第二大数量盘子个数,层层递归可以发现共有四种情况..</p>
 </blockquote>
-<h2 id="题意描述"><a href="#题意描述" class="headerlink" title="题意描述"></a>题意描述</h2><p>给定一个 M×N 矩形广场,以及 k 名啦啦队员,要求使每个队员在一个单位格中,并且第一行、最后一行、第一列、最后一列必须要有一人 如下图<br>(任意角落视为在一行及一列上)<br><img src="https://s2.ax1x.com/2019/10/08/uhrl40.png" alt="avatar"></p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>根据刚学过的容斥原理,可以先计算无约束条件下的可能性数 S0 为:<br><img src="https://s2.ax1x.com/2019/10/08/uhsqSK.png" alt="avatar"></p>
-<p>然后假定事件如下</p>
 <ul>
-<li>A:第一行没有人</li>
-<li>B:最后一行没有人</li>
-<li>C:第一列没有人</li>
-<li>D:最后一列没有人</li>
-</ul>
-<p>那么可以得出所求答案为  </p>
-<blockquote>
-<p>S= S0<br>-(A+B+C+D)<br>+(AB+AC+AD+BC+BD+CD)<br>-(ABC+ABD+ACD+BCD)<br>+ABCD</p>
+<li><h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><blockquote>
+<p>6  5  4  3  2  1<br>全奇数数量盘子<br>先手直接胜利,输出最大的(6)</p>
 </blockquote>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>在这里使用二进制来进行事件的表示<br>即0000-1111,每一位分别代表DCBA事件,1为发生,0则相反<br>同时在代码初始进行打表计算S0.</p>
-<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">1e-4</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000007</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">505</span>][<span class="number">505</span>];</span><br><span class="line"><span class="comment">//打表初始化</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</span><br><span class="line">    a[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">505</span>;i++)&#123;</span><br><span class="line">        a[i][<span class="number">0</span>]=a[i][i]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;i;j++)a[i][j]=(a[i<span class="number">-1</span>][j<span class="number">-1</span>]+a[i<span class="number">-1</span>][j])%N;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">int</span> T,casee=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="keyword">int</span> s=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n,m,k;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;n,&amp;m,&amp;k);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">16</span>;i++)&#123;  <span class="comment">//0000--1111,循环16次</span></span><br><span class="line">            <span class="keyword">int</span> r=n,c=m,b=<span class="number">0</span>;    <span class="comment">//b表示同时发生的事件数目(1,2,3,4)</span></span><br><span class="line">            <span class="keyword">if</span>(i&amp;<span class="number">1</span>)&#123;r--;b++;&#125;   <span class="comment">//事件A,可放置范围减少一行</span></span><br><span class="line">            <span class="keyword">if</span>(i&amp;<span class="number">2</span>)&#123;r--;b++;&#125;   <span class="comment">//事件B,同上</span></span><br><span class="line">            <span class="keyword">if</span>(i&amp;<span class="number">4</span>)&#123;c--;b++;&#125;   <span class="comment">//事件C,可放置范围减少一列</span></span><br><span class="line">            <span class="keyword">if</span>(i&amp;<span class="number">8</span>)&#123;c--;b++;&#125;   <span class="comment">//事件D,同上</span></span><br><span class="line">            <span class="keyword">if</span>(b&amp;<span class="number">1</span>)&#123;s=(s+N-a[r*c][k])%N;&#125;</span><br><span class="line">            <span class="keyword">else</span> s=(s+a[r*c][k])%N;  <span class="comment">//奇减偶加</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d: %d\n"</span>,casee++,s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><blockquote>
+<p>6  6  5  5  4  4<br>多偶数数量盘子,先手胜利,输出最小值(4)  </p>
+</blockquote>
+</li>
+<li><h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><blockquote>
+<p>3  3  2  2  1<br>偶数+单个奇数,后手胜利</p>
+</blockquote>
+</li>
+<li><h3 id="4"><a href="#4" class="headerlink" title="4"></a>4</h3><blockquote>
+<p>4  4  3  3  2  1<br>偶数+多个奇数<br>先手胜利,输出最大的奇数个(2)</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<hr>
+<blockquote>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a><strong><em>Code</em></strong></h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//#include&lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F(i,a,b) for(int i=a;i&lt;=b;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M(i) memset(i,0,sizeof(i))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CE cout&lt;&lt;endl;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="comment">//const double eps=1e-4;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">998244353</span>;</span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a, ll b)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> b == <span class="number">0</span> ? a : gcd(b, a%b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">100000</span>+<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">ifndef</span> ONLINE_JUDGE</span></span><br><span class="line">        freopen(<span class="string">"E:\\test"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// ONLINE_JUDGE</span></span></span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">    <span class="keyword">int</span> c=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        F(i,<span class="number">0</span>,n<span class="number">-1</span>)<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">        sort(a,a+n,cmp);</span><br><span class="line">        <span class="keyword">int</span> flag=<span class="number">0</span>,now=a[<span class="number">0</span>],tot=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> odd=<span class="number">0</span>;</span><br><span class="line">        F(i,<span class="number">1</span>,n<span class="number">-2</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(now==a[i])tot++;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(i==<span class="number">1</span>)&#123;flag==<span class="number">3</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(odd==<span class="number">0</span>&amp;&amp;tot%<span class="number">2</span>==<span class="number">1</span>)&#123;odd=now;flag=<span class="number">2</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">                now=a[i];tot=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//cout&lt;&lt;c++&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">if</span>(flag==<span class="number">3</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(flag==<span class="number">2</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,odd);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(now==a[n<span class="number">-1</span>]&amp;&amp;tot%<span class="number">2</span>==<span class="number">1</span>)<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,now);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(now==a[n<span class="number">-1</span>]&amp;&amp;tot%<span class="number">2</span>==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(now!=a[n<span class="number">-1</span>]&amp;&amp;tot%<span class="number">2</span>==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(tot%<span class="number">2</span>==<span class="number">1</span>&amp;&amp;now!=a[n<span class="number">-1</span>])</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,now);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
+
       
     </div>
     
@@ -449,7 +452,7 @@
 <ul class="post-copyright">
   <li class="post-copyright-title">
     <strong>本文標題：</strong>
-    UVA_11086_容斥原理
+    十七届中国计量大学程序设计竞赛_D(博弈)
   </li>
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
@@ -457,16 +460,16 @@
   </li>
   <li class="post-copyright-created_at">
     <strong>發佈時間：</strong>
-    2019-10-08
+    2020-09-27
   </li>
   <li class="post-copyright-updated_at">
     <strong>最後更新：</strong>
-    2020-07-16
+    2020-09-27
   </li>
   <li class="post-copyright-link">
     <strong>本文鏈接：</strong>
-    <a href="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/" title="UVA_11086_容斥原理">http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/" aria-label="复制成功！"></i></span>
+    <a href="http://Wisdom12333.github.io/2020/09/27/十七届中国计量大学程序设计竞赛D(博弈)/" title="十七届中国计量大学程序设计竞赛_D(博弈)">http://Wisdom12333.github.io/2020/09/27/十七届中国计量大学程序设计竞赛D(博弈)/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://Wisdom12333.github.io/2020/09/27/十七届中国计量大学程序设计竞赛D(博弈)/" aria-label="复制成功！"></i></span>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>
@@ -493,7 +496,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文鏈接：</strong>
-    <a href="http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/" title="UVA_11086_容斥原理">http://Wisdom12333.github.io/2019/10/08/UVA-11086_容斥原理/</a>
+    <a href="http://Wisdom12333.github.io/2020/09/27/十七届中国计量大学程序设计竞赛D(博弈)/" title="十七届中国计量大学程序设计竞赛_D(博弈)">http://Wisdom12333.github.io/2020/09/27/十七届中国计量大学程序设计竞赛D(博弈)/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版權聲明： </strong>
@@ -508,8 +511,8 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数论-容斥原理/" rel="tag">
-            <i class="fa fa-tag"></i> 数论_容斥原理</a>
+            <a href="/tags/博弈论/" rel="tag">
+            <i class="fa fa-tag"></i> 博弈论</a>
           
         </div>
       
@@ -522,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/02/Hdu-1213-How-Many-Tables-并查集/" rel="next" title="Hdu_1213_How Many Tables 并查集">
-                <i class="fa fa-chevron-left"></i> Hdu_1213_How Many Tables 并查集
+              <a href="/2020/09/09/2019山东省赛/" rel="next" title="2019山东省赛(省赛选拔赛一)">
+                <i class="fa fa-chevron-left"></i> 2019山东省赛(省赛选拔赛一)
               </a>
             
           </div>
@@ -531,10 +534,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/11/UVA-10883-Supermean-组合数-数值优化/" rel="prev" title="UVA_10883_Supermean(组合数+数值优化)">
-                UVA_10883_Supermean(组合数+数值优化) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -694,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#容斥原理简单说明"><span class="nav-number">1.</span> <span class="nav-text">容斥原理简单说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意描述"><span class="nav-number">2.</span> <span class="nav-text">题意描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">2.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AC代码"><span class="nav-number">2.3.</span> <span class="nav-text">AC代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LINK"><span class="nav-number">1.1.</span> <span class="nav-text">LINK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Now-given-a-number-N-indicating-the-number-of-plates-and-an-array-a-representing-the-number-of-cakes-on-each-plate-During-one-move-the-player-chooses-an-existing-number-x-and-takes-away-a-plate-with-cake-number-x-The-next-player’s-choice-of-x-cannot-be-less-than-this-time-Of-course-the-first-choice-is-unlimited-The-person-who-takes-the-last-plate-loses-and-the-person-who-cannot-choose-x-will-take-all-the-plates-left-on-the-table-You-are-asked-to-tell-Chairman-Luo-the-first-x-to-win-or-1-if-he-cannot-win-Because-of-his-status-Chairman-Luo-will-always-take-the-first-move"><span class="nav-number">1.2.</span> <span class="nav-text">Now given a number N, indicating the number of plates, and an array a, representing the number of cakes on each plate. During one move, the player chooses an existing number x and takes away a plate with cake number x. The next player’s choice of x cannot be less than this time. Of course, the first choice is unlimited. The person who takes the last plate loses, and the person who cannot choose x will take all the plates left on the table. You are asked to tell Chairman Luo the first x to win, or -1 if he cannot win. Because of his status, Chairman Luo will always take the first move.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Simple-Out"><span class="nav-number">2.</span> <span class="nav-text">Simple Out</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目大意"><span class="nav-number">3.</span> <span class="nav-text">题目大意</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#现在先手后手两人分别拿-每次需要选定一个蛋糕数量大于上一轮的盘子拿走-拿走最后一盘的人判负-另外若没有任何一盘蛋糕比上一盘拿的数量多-则需要直接拿走剩下所有盘子-即直接判负"><span class="nav-number">3.1.</span> <span class="nav-text">现在先手后手两人分别拿,每次需要选定一个蛋糕数量大于上一轮的盘子拿走,拿走最后一盘的人判负,另外若没有任何一盘蛋糕比上一盘拿的数量多,则需要直接拿走剩下所有盘子,即直接判负.  </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">3.2.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-number">3.2.1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2"><span class="nav-number">3.2.2.</span> <span class="nav-text">2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3"><span class="nav-number">3.2.3.</span> <span class="nav-text">3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4"><span class="nav-number">3.2.4.</span> <span class="nav-text">4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">4.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
