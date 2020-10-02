@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[字典树]]></title>
+    <url>%2F2020%2F10%2F02%2F%E5%AD%97%E5%85%B8%E6%A0%91%2F</url>
+    <content type="text"><![CDATA[字典树(Trie),又被称为前缀树,普遍用来存储字符串. 原理蓝色为终点节点图中的字典树中包含了 “apple” “app” “abc” “book” “bob” 将一个个字符串按照其顺序插入树中,就是字典树了.其中的操作方法又可以分为 “插入” 和 “查找”. 插入插入也就是字典树的构造过程,对于要插入的字符串,从根节点开始从头对其遍历,每次查看当前节点下是否存在目前遍历的字符,如果不存在,则创建新的节点,并且进入该节点进行下一次遍历同时使用变量 cnt 记录当前的数组下标.如果遍历到当前字符串末尾,标记当前节点,使之成为终点节点(图中蓝色) Code 123456&gt;struct Node &#123; &gt; bool End;//是否是某个单词的结束 &gt; int vis[MAX];//接下来的子节点的位置 &gt;&#125;Trie[MAXNode&#125;;&gt;int cnt=0;&gt; 字典树数据结构 1234567891011//插入void Build(string s)&#123; //s是要放到Trie树里面的串 int now=0;//当前位置 int l=s.length();//字符串长度 for(int i=0;i&lt;l;++i)&#123; //依次遍历所有位置 if(!Trie[now].vis[s[i]])//不存在这个位置 Trie[now].vis[s[i]]=++cnt;//那就构建出这个节点 now=Trie[now].vis[s[i]];//访问下一层 &#125; Trie[now].End=true;//单词结尾&#125; 查找查找的方法其实形如插入,同样使用遍历当遇到节点不存在直接返回 false如果遍历到末尾,则判断末尾是不是一个终点节点. Code12345678910int Search(string str)&#123; //搜索单个字符串是否已经存在 int l=str.length(); //字符串长度 int now=0; //当前位置 for(int i=0;i&lt;l;++i)&#123; //依次遍历所有位置 if(!Trie[now].vis[s[i]])//不存在这个位置 return 0; //无重复字符串 now=Trie[now].vis[s[i]];//访问下一层 &#125; return Trie[now].End==true;//检查末节点&#125;]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[字符串哈希]]></title>
     <url>%2F2020%2F09%2F29%2F%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C%2F</url>
-    <content type="text"><![CDATA[字符串哈希(Hash):将一个字符串映射为一个唯一的整数对字符串进行判重,以判定是否出现过. Hash方法自然溢出 unsigned long long 类型会对于超出范围的整数自动对于 $ 2^64 - 1 $ 取模. 所以有1unsigned long long Hash[ MAXN ] $ Hash[ i ] = Hash[ i-1 ]*p + int(str[ i ]); $ 单Hash $ Hash[ i ] = (Hash[ i-1 ]*p+int(str[ i ]))%mod; $ 需要注意的是 $ p $ 和 $ mod $ 都为素数,且 $ p &lt; mod $ ,当 $ p $ 和 $ mod $ 足够大,冲突概率很小. 双Hash使用两个 $ mod $ 进行两次 Hash,将两个结果以对表示,冲突概率接近0. 获取子串Hash值 对于子串由 $ l $ -&gt; $ r $ , $ Hash[ r ] - Hash[ l-1 ]* p^{r-l+1} $ 考虑到结果可能为负数的情况, $ ((Hash[ r ] - Hash[ l-1 ]* p^{r-l+1} )% mod + mod)% mod $ 另外,如果需要反复对于子串求Hash值,可以考虑对于 $ p^n $ 进行预处理. EX 给定 $ str1 ,str2 $ 询问 $str2 $是否是 $str1 $ 的子串 适合使用的 $ p $ 值 参考]]></content>
+    <content type="text"><![CDATA[字符串哈希(Hash):将一个字符串映射为一个唯一的整数对字符串进行判重,以判定是否出现过. Hash方法自然溢出 unsigned long long 类型会对于超出范围的整数自动对于 $ 2^{64} - 1 $ 取模. 所以有1unsigned long long Hash[ MAXN ] $ Hash[ i ] = Hash[ i-1 ]*p + int(str[ i ]); $ 单Hash $ Hash[ i ] = (Hash[ i-1 ]*p+int(str[ i ]))%mod; $ 需要注意的是 $ p $ 和 $ mod $ 都为素数,且 $ p &lt; mod $ ,当 $ p $ 和 $ mod $ 足够大,冲突概率很小. 双Hash使用两个 $ mod $ 进行两次 Hash,将两个结果以对表示,冲突概率接近0. 获取子串Hash值 对于子串由 $ l $ -&gt; $ r $ , $ Hash[ r ] - Hash[ l-1 ]* p^{r-l+1} $ 考虑到结果可能为负数的情况, $ ((Hash[ r ] - Hash[ l-1 ]* p^{r-l+1} )% mod + mod)% mod $ 另外,如果需要反复对于子串求Hash值,可以考虑对于 $ p^n $ 进行预处理. EX 给定 $ str1 ,str2 $ 询问 $str2 $是否是 $str1 $ 的子串 适合使用的 $ p $ 值 参考]]></content>
       <categories>
         <category>ACM</category>
       </categories>

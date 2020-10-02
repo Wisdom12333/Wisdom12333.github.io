@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="字符串,">
 
 
 
@@ -86,18 +86,20 @@
 
 
 
-<meta name="description" content="须知E_Mail:Wisdom123356@Gmail.com">
-<meta name="keywords" content="ACM,Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About">
-<meta property="og:url" content="http://Wisdom12333.github.io/about/index.html">
+<meta name="description" content="字典树(Trie),又被称为前缀树,普遍用来存储字符串.">
+<meta name="keywords" content="字符串">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字典树">
+<meta property="og:url" content="http://Wisdom12333.github.io/2020/10/02/字典树/index.html">
 <meta property="og:site_name" content="Wisdom&#39;Blog">
-<meta property="og:description" content="须知E_Mail:Wisdom123356@Gmail.com">
+<meta property="og:description" content="字典树(Trie),又被称为前缀树,普遍用来存储字符串.">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2020-07-17T07:10:42.619Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/02/0lQMx1.jpg">
+<meta property="og:updated_time" content="2020-10-02T08:53:17.458Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About">
-<meta name="twitter:description" content="须知E_Mail:Wisdom123356@Gmail.com">
+<meta name="twitter:title" content="字典树">
+<meta name="twitter:description" content="字典树(Trie),又被称为前缀树,普遍用来存储字符串.">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/02/0lQMx1.jpg">
 
 
 
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://Wisdom12333.github.io/about/">
+  <link rel="canonical" href="http://Wisdom12333.github.io/2020/10/02/字典树/">
 
 
 
 
 
-  <title>About | Wisdom'Blog</title>
+  <title>字典树 | Wisdom'Blog</title>
   
 
 
@@ -299,34 +301,249 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Wisdom12333.github.io/2020/10/02/字典树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wisdom">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wisdom'Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">About</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h1 id="须知"><a href="#须知" class="headerlink" title="须知"></a>须知</h1><p>E_Mail:Wisdom123356@Gmail.com</p>
-
+          <h1 class="post-title" itemprop="name headline">字典树</h1>
         
-      </div>
+
+        <div class="post-meta">
+        
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-10-02T15:59:22+08:00">
+                2020-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>字典树(Trie),又被称为前缀树,普遍用来存储字符串.   </p>
+<a id="more"></a>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p><img src="https://s1.ax1x.com/2020/10/02/0lQMx1.jpg" alt="蓝色为终点节点"><br><em><center>蓝色为终点节点</center></em><br>图中的字典树中包含了   </p>
+<ul>
+<li>“apple”  </li>
+<li>“app”  </li>
+<li>“abc”  </li>
+<li>“book”  </li>
+<li>“bob”  </li>
+</ul>
+<p>将一个个字符串按照其顺序插入树中,就是字典树了.<br>其中的操作方法又可以分为 <strong>“插入”</strong> 和 <strong>“查找”</strong>.  </p>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><p>插入也就是字典树的构造过程,<br>对于要插入的字符串,从根节点开始从头对其遍历,<br>每次查看当前节点下是否存在目前遍历的字符,<br>如果不存在,则创建新的节点,并且进入该节点进行下一次遍历<br>同时使用变量 <strong>cnt</strong> 记录当前的数组下标.<br>如果遍历到当前字符串末尾,标记当前节点,使之成为终点节点(图中蓝色)</p>
+<hr>
+<p><strong><em>Code</em></strong></p>
+<blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span> </span><br><span class="line">&gt;	<span class="keyword">bool</span> End;<span class="comment">//是否是某个单词的结束 </span></span><br><span class="line">&gt;	<span class="keyword">int</span> vis[MAX];<span class="comment">//接下来的子节点的位置 </span></span><br><span class="line">&gt;&#125;Trie[MAXNode&#125;;</span><br><span class="line">&gt;<span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><em><center>字典树数据结构</center></em></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插入</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Build</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;  <span class="comment">//s是要放到Trie树里面的串</span></span><br><span class="line">       <span class="keyword">int</span> now=<span class="number">0</span>;<span class="comment">//当前位置</span></span><br><span class="line">       <span class="keyword">int</span> l=s.length();<span class="comment">//字符串长度</span></span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;l;++i)&#123;   <span class="comment">//依次遍历所有位置</span></span><br><span class="line">             <span class="keyword">if</span>(!Trie[now].vis[s[i]])<span class="comment">//不存在这个位置</span></span><br><span class="line">                 Trie[now].vis[s[i]]=++cnt;<span class="comment">//那就构建出这个节点</span></span><br><span class="line">             now=Trie[now].vis[s[i]];<span class="comment">//访问下一层</span></span><br><span class="line">       &#125;</span><br><span class="line">	    Trie[now].End=<span class="literal">true</span>;<span class="comment">//单词结尾</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>查找的方法其实形如插入,同样使用遍历<br>当遇到节点不存在直接返回 <strong><font color="66CCFF">false</font></strong><br>如果遍历到末尾,则判断末尾是不是一个终点节点.</p>
+<p><strong><em>Code</em></strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Search</span><span class="params">(<span class="built_in">string</span> str)</span></span>&#123; <span class="comment">//搜索单个字符串是否已经存在</span></span><br><span class="line">	    <span class="keyword">int</span> l=str.length();   <span class="comment">//字符串长度</span></span><br><span class="line">	    <span class="keyword">int</span>  now=<span class="number">0</span>;   <span class="comment">//当前位置</span></span><br><span class="line">	  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;l;++i)&#123;   <span class="comment">//依次遍历所有位置</span></span><br><span class="line">	        <span class="keyword">if</span>(!Trie[now].vis[s[i]])<span class="comment">//不存在这个位置</span></span><br><span class="line">	            <span class="keyword">return</span> <span class="number">0</span>;  <span class="comment">//无重复字符串</span></span><br><span class="line">	        now=Trie[now].vis[s[i]];<span class="comment">//访问下一层</span></span><br><span class="line">	  &#125;</span><br><span class="line">	    <span class="keyword">return</span> Trie[now].End==<span class="literal">true</span>;<span class="comment">//检查末节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+      <div>
+        <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<ul class="post-copyright">
+  <li class="post-copyright-title">
+    <strong>本文標題：</strong>
+    字典树
+  </li>
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wisdom
+  </li>
+  <li class="post-copyright-created_at">
+    <strong>發佈時間：</strong>
+    2020-10-02
+  </li>
+  <li class="post-copyright-updated_at">
+    <strong>最後更新：</strong>
+    2020-10-02
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文鏈接：</strong>
+    <a href="http://Wisdom12333.github.io/2020/10/02/字典树/" title="字典树">http://Wisdom12333.github.io/2020/10/02/字典树/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://Wisdom12333.github.io/2020/10/02/字典树/" aria-label="复制成功！"></i></span>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>
+    本博客所有文章除特別聲明外,均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> 許可協議.轉載請注明出處
+  </li>
+</ul>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({
+          title: "",
+          text: '复制文章链接成功',
+          icon: "success",
+          showConfirmButton: true
+          });
+      });
+    });  
+</script>
+<!--<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Wisdom
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文鏈接：</strong>
+    <a href="http://Wisdom12333.github.io/2020/10/02/字典树/" title="字典树">http://Wisdom12333.github.io/2020/10/02/字典树/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>
+    本博客所有文章除特別聲明外,均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-ND 4.0</a> 許可協議.轉載請注明出處
+  </li>
+</ul>-->
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/字符串/" rel="tag">
+            <i class="fa fa-tag"></i> 字符串</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/29/字符串哈希/" rel="next" title="字符串哈希">
+                <i class="fa fa-chevron-left"></i> 字符串哈希
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -467,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#须知"><span class="nav-number">1.</span> <span class="nav-text">须知</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入"><span class="nav-number">1.1.</span> <span class="nav-text">插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找"><span class="nav-number">1.2.</span> <span class="nav-text">查找</span></a></li></ol></li></ol></div>
             
 
           </div>
