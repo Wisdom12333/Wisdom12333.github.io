@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[KMP]]></title>
+    <url>%2F2020%2F10%2F02%2FKMP%2F</url>
+    <content type="text"><![CDATA[一种复杂度为 $ O_{(n)} $ 的字符串匹配算法 转载至 SYC的博客 (内含GIF辅助理解) KMP:用于字符串中对模式串进行检索, Next数组:$ next[i] $ 表示前 $ i $ 个字符所组成的子串的最长相同前缀和后缀长度 EX 模式串S a b a a b b a b a a b next数组 0 0 1 1 2 0 1 2 3 4 5 Next数组推导 所有位的next[i]全部设为该位最长相同前后缀-1,以方便表示此前缀结尾在模式串中的位置 如果某个子串不存在相同前后缀,next[i]设为-1 Code123456789for (int i=1;i&lt;m;i++) &#123; int j=next[i-1]; while ((B[j+1]!=B[i])&amp;&amp;(j&gt;=0)) j=next[j]; if (B[j+1]==B[i]) next[i]=j+1; else next[i]=-1; &#125;//next[0]=-1; 匹配Code1234567891011121314while (i&lt;n) &#123; if (A[i]==B[j]) &#123; i++; j++; if (j==m) &#123; printf("%d\n",i-m); //输出匹配的开始位置 //字符串从0开始 j=F[j-1]+1; &#125; &#125; else &#123; if (j==0) i++; else j=F[j-1]+1; &#125; &#125;]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[字典树]]></title>
     <url>%2F2020%2F10%2F02%2F%E5%AD%97%E5%85%B8%E6%A0%91%2F</url>
     <content type="text"><![CDATA[字典树(Trie),又被称为前缀树,普遍用来存储字符串. 原理蓝色为终点节点图中的字典树中包含了 “apple” “app” “abc” “book” “bob” 将一个个字符串按照其顺序插入树中,就是字典树了.其中的操作方法又可以分为 “插入” 和 “查找”. 插入插入也就是字典树的构造过程,对于要插入的字符串,从根节点开始从头对其遍历,每次查看当前节点下是否存在目前遍历的字符,如果不存在,则创建新的节点,并且进入该节点进行下一次遍历同时使用变量 cnt 记录当前的数组下标.如果遍历到当前字符串末尾,标记当前节点,使之成为终点节点(图中蓝色) Code 123456&gt;struct Node &#123; &gt; bool End;//是否是某个单词的结束 &gt; int vis[MAX];//接下来的子节点的位置 &gt;&#125;Trie[MAXNode&#125;;&gt;int cnt=0;&gt; 字典树数据结构 1234567891011//插入void Build(string s)&#123; //s是要放到Trie树里面的串 int now=0;//当前位置 int l=s.length();//字符串长度 for(int i=0;i&lt;l;++i)&#123; //依次遍历所有位置 if(!Trie[now].vis[s[i]])//不存在这个位置 Trie[now].vis[s[i]]=++cnt;//那就构建出这个节点 now=Trie[now].vis[s[i]];//访问下一层 &#125; Trie[now].End=true;//单词结尾&#125; 查找查找的方法其实形如插入,同样使用遍历当遇到节点不存在直接返回 false如果遍历到末尾,则判断末尾是不是一个终点节点. Code12345678910int Search(string str)&#123; //搜索单个字符串是否已经存在 int l=str.length(); //字符串长度 int now=0; //当前位置 for(int i=0;i&lt;l;++i)&#123; //依次遍历所有位置 if(!Trie[now].vis[s[i]])//不存在这个位置 return 0; //无重复字符串 now=Trie[now].vis[s[i]];//访问下一层 &#125; return Trie[now].End==true;//检查末节点&#125;]]></content>
