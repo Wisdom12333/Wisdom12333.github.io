@@ -1,324 +1,413 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>动物迷城礼物查询</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动物迷城礼物查询</title>
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
-            background-color: #f8f9fa;
-            padding: 20px;
-        }
+      body {
+          font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+          background-color: #f8f9fa;
+          padding: 20px;
+      }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+      .container {
+          max-width: 800px;
+          margin: 0 auto;
+      }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+      .header {
+          text-align: center;
+          margin-bottom: 40px;
+      }
 
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #4285f4;
-            margin-bottom: 20px;
-        }
+      .logo {
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: #4285f4;
+          margin-bottom: 20px;
+      }
 
-        .search-box {
-            position: relative;
-            margin-bottom: 30px;
-        }
+      .search-box {
+          position: relative;
+          margin-bottom: 30px;
+      }
 
-        .search-input {
-            width: 100%;
-            padding: 12px 45px 12px 16px;
-            font-size: 16px;
-            border: 2px solid #dfe1e5;
-            border-radius: 24px;
-            outline: none;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+      .search-input {
+          width: 100%;
+          padding: 12px 45px 12px 16px;
+          font-size: 16px;
+          border: 2px solid #dfe1e5;
+          border-radius: 24px;
+          outline: none;
+          transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
 
-        .search-input:focus {
-            border-color: #4285f4;
-            box-shadow: 0 2px 8px rgba(66, 133, 244, 0.2);
-        }
+      .search-input:focus {
+          border-color: #4285f4;
+          box-shadow: 0 2px 8px rgba(66, 133, 244, 0.2);
+      }
 
-        .search-icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9aa0a6;
-            font-size: 18px;
-        }
+      .search-icon {
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #9aa0a6;
+          font-size: 18px;
+      }
 
-        .results-container {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: none;
-        }
+      .results-container {
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          display: none;
+      }
 
-        .results-header {
-            background: #f8f9fa;
-            padding: 12px 20px;
-            border-bottom: 1px solid #e8eaed;
-            font-weight: bold;
-            color: #3c4043;
-        }
+      .results-header {
+          background: #f8f9fa;
+          padding: 12px 20px;
+          border-bottom: 1px solid #e8eaed;
+          font-weight: bold;
+          color: #3c4043;
+      }
 
-        .results-count {
-            font-size: 14px;
-            color: #70757a;
-            margin-bottom: 5px;
-        }
+      .results-count {
+          font-size: 14px;
+          color: #70757a;
+          margin-bottom: 5px;
+      }
 
-        .results-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+      .results-table {
+          width: 100%;
+          border-collapse: collapse;
+      }
 
-        .results-table th {
-            background: #f8f9fa;
-            padding: 12px 20px;
-            text-align: left;
-            font-weight: 600;
-            color: #3c4043;
-            border-bottom: 1px solid #e8eaed;
-        }
+      .results-table th {
+          background: #f8f9fa;
+          padding: 12px 20px;
+          text-align: left;
+          font-weight: 600;
+          color: #3c4043;
+          border-bottom: 1px solid #e8eaed;
+      }
 
-        .results-table td {
-            padding: 12px 20px;
-            border-bottom: 1px solid #f0f0f0;
-            vertical-align: top;
-        }
+      .results-table td {
+          padding: 12px 20px;
+          border-bottom: 1px solid #f0f0f0;
+          vertical-align: top;
+      }
 
-        .results-table tr:hover {
-            background-color: #f8f9fa;
-        }
+      .results-table tr:hover {
+          background-color: #f8f9fa;
+      }
 
-        .key-column {
-            font-weight: 500;
-            color: #1a73e8;
-            width: 30%;
-        }
+      .key-column {
+          font-weight: 500;
+          color: #1a73e8;
+          width: 30%;
+      }
 
-        .value-column {
-            color: #3c4043;
-            line-height: 1.4;
-        }
+      .value-column {
+          color: #3c4043;
+          line-height: 1.4;
+      }
 
-        .value-item {
-            display: inline-block;
-            background: #e8f0fe;
-            color: #1565c0;
-            padding: 2px 8px;
-            margin: 2px;
-            border-radius: 12px;
-            font-size: 12px;
-        }
+      .value-item {
+          display: inline-block;
+          background: #e8f0fe;
+          color: #1565c0;
+          padding: 2px 8px;
+          margin: 2px;
+          border-radius: 12px;
+          font-size: 12px;
+      }
 
-        .highlight {
-            background-color: #fff3cd;
-            font-weight: bold;
-        }
+      .highlight {
+          background-color: #fff3cd;
+          font-weight: bold;
+      }
 
-        .no-results {
-            text-align: center;
-            padding: 40px 20px;
-            color: #70757a;
-        }
+      .no-results {
+          text-align: center;
+          padding: 40px 20px;
+          color: #70757a;
+      }
 
-        .clear-btn {
-            position: absolute;
-            right: 45px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            font-size: 16px;
-            color: #9aa0a6;
-            cursor: pointer;
-            padding: 4px;
-            display: none;
-        }
+      .clear-btn {
+          position: absolute;
+          right: 45px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          font-size: 16px;
+          color: #9aa0a6;
+          cursor: pointer;
+          padding: 4px;
+          display: none;
+      }
 
-        .clear-btn:hover {
-            color: #3c4043;
-        }
-    </style>
+      .clear-btn:hover {
+          color: #3c4043;
+      }
+
+      .data-source {
+          position: fixed; /* 固定定位 */
+          bottom: 30px; /* 距离底部 0 */
+          left: 50%; /* 水平位置设为 50% */
+          transform: translateX(-50%); /* 水平居中 */
+          margin-top: 40px;
+          padding-top: 20px;
+          border-top: 1px solid #e8eaed;
+          text-align: center;
+      }
+
+      .data-source-label {
+          font-size: 14px;
+          color: #70757a;
+          margin-bottom: 8px;
+      }
+
+      .data-source-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          color: #1a73e8;
+          text-decoration: none;
+          font-size: 14px;
+          padding: 8px 16px;
+          border-radius: 20px;
+          background-color: #f8f9fa;
+          transition: all 0.3s ease;
+      }
+
+      .data-source-link:hover {
+          background-color: #e8f0fe;
+          text-decoration: none;
+          transform: translateY(-1px);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .data-source-icon {
+          font-size: 16px;
+      }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">🔍 礼物查询</div>
-        </div>
-        
-        <div class="search-box">
-            <input type="text" id="searchInput" class="search-input" placeholder="输入角色或物品进行搜索..." autocomplete="off">
-            <button id="clearBtn" class="clear-btn">✕</button>
-            <span class="search-icon">🔍</span>
-        </div>
+<div class="container">
+  <div class="header">
+    <div class="logo">🔍 礼物查询</div>
+  </div>
 
-        <div id="resultsContainer" class="results-container">
-            <div class="results-header">
-                <div id="resultsCount" class="results-count"></div>
-                <div>搜索结果</div>
-            </div>
-            
-            <table class="results-table">
-                <thead>
-                    <tr>
-                        <th>姓名</th>
-                        <th>喜欢的礼物</th>
-                    </tr>
-                </thead>
-                <tbody id="resultsBody">
-                </tbody>
-            </table>
-            
-            <div id="noResults" class="no-results" style="display: none;">
-                <p>没有找到匹配的结果</p>
-                <p style="font-size: 14px; margin-top: 8px;">请尝试其他关键词</p>
-            </div>
-        </div>
+  <div class="search-box">
+    <input type="text" id="searchInput" class="search-input" placeholder="输入角色或物品进行搜索..." autocomplete="off">
+    <button id="clearBtn" class="clear-btn">✕</button>
+    <span class="search-icon">🔍</span>
+  </div>
+
+  <div id="resultsContainer" class="results-container">
+    <div class="results-header">
+      <div id="resultsCount" class="results-count"></div>
+      <div>搜索结果</div>
     </div>
 
-    <script>
-        const searchData = {
-            "大象-金波": ["啤酒", "冰啤酒", "土豆披萨", "超辣泡面"],
-            "河马-弗兰克": ["拖鞋", "凉鞋", "镀金手表", "齿项链类", "皮带", "运动腰带", "薄荷卷", "精致叶卷", "香皂", "手工香皂", "扳手", "钉锤"],
-            "犀牛-伊万": ["随身听", "苹果", "汽水", "限定款汽水", "红头巾", "皮带", "运动腰带", "蛋白粉"],
-            "水牛-比尔": ["齿项链类", "酒葫芦", "啤酒", "烈酒", "精酿烈酒","冰啤酒","汽水","土豆披萨","扳手","钉锤","螺丝刀","马女郎海报"],
-            "骆驼-托尼": ["烈火球帽", "雄鹰球帽", "首脑球帽", "随身听", "计算器","手表类","掌上游戏机","薄荷叶","硬币"],
-            "海象-温斯顿": ["酒葫芦", "烈酒", "精酿烈酒", "茶包", "香皂", "手工香皂"],
-            "羊驼-迪亚哥": ["蘑菇", "兴奋剂", "止疼片", "《花花世界》（全新）", "特调香水"],
-            "斑马-富兰克林": ["手表类", "随身听", "计算器", "掌上游戏机", "长螺丝", "螺丝刀","扳手","钉锤","苹果","特调香水","酒精灯"],
-            "物流管理": ["发货管理", "物流跟踪", "配送设置", "退货处理"],
-            "安全管理": ["登录安全", "数据加密", "访问控制", "风险监控"]
-        };
+    <table class="results-table">
+      <thead>
+      <tr>
+        <th>姓名</th>
+        <th>喜欢的礼物</th>
+      </tr>
+      </thead>
+      <tbody id="resultsBody">
+      </tbody>
+    </table>
 
-        const searchInput = document.getElementById('searchInput');
-        const clearBtn = document.getElementById('clearBtn');
-        const resultsContainer = document.getElementById('resultsContainer');
-        const resultsBody = document.getElementById('resultsBody');
-        const resultsCount = document.getElementById('resultsCount');
-        const noResults = document.getElementById('noResults');
+    <div id="noResults" class="no-results" style="display: none;">
+      <p>没有找到匹配的结果</p>
+      <p style="font-size: 14px; margin-top: 8px;">请尝试其他关键词</p>
+    </div>
+  </div>
 
-        // 高亮匹配文本的函数
-        function highlightText(text, searchTerm) {
-            if (!searchTerm) return text;
-            const regex = new RegExp(`(${searchTerm})`, 'gi');
-            return text.replace(regex, '<span class="highlight">$1</span>');
-        }
+  <div class="data-source">
+    <div class="data-source-label">数据来源</div>
+    <a href="https://www.bilibili.com/opus/1093199911343620096"
+       class="data-source-link"
+       target="_blank"
+       rel="noopener noreferrer">
+      <span class="data-source-icon">📊</span>
+      《动物迷城》全角色喜好、技能攻略大表，看完成为监狱魅魔！
+    </a>
+  </div>
+</div>
 
-        // 搜索函数
-        function performSearch(query) {
-            if (!query.trim()) {
-                resultsContainer.style.display = 'none';
-                return;
-            }
+<script>
+  const searchData = {
+    "大象-金波": ["啤酒", "冰啤酒", "土豆披萨", "超辣泡面"],
+    "河马-弗兰克": ["拖鞋", "凉鞋", "镀金手表", "齿项链类", "皮带", "运动腰带", "薄荷卷", "精致叶卷", "香皂", "手工香皂", "扳手", "钉锤"],
+    "犀牛-伊万": ["随身听", "苹果", "汽水", "限定款汽水", "红头巾", "皮带", "运动腰带", "蛋白粉"],
+    "水牛-比尔": ["齿项链类", "酒葫芦", "啤酒", "烈酒", "精酿烈酒", "冰啤酒", "汽水", "土豆披萨", "扳手", "钉锤", "螺丝刀", "马女郎海报"],
+    "骆驼-托尼": ["烈火球帽", "雄鹰球帽", "首脑球帽", "随身听", "计算器", "手表类", "掌上游戏机", "薄荷叶", "硬币"],
+    "海象-温斯顿": ["酒葫芦", "烈酒", "精酿烈酒", "茶包", "香皂", "手工香皂", "不喜欢金龟子"],
+    "羊驼-迪亚哥": ["蘑菇", "兴奋剂", "止疼片", "《花花世界》（全新）", "特调香水"],
+    "斑马-富兰克林": ["手表类", "随身听", "计算器", "掌上游戏机", "长螺丝", "螺丝刀", "扳手", "钉锤", "苹果", "特调香水", "酒精灯"],
+    "雄狮-阿历克斯": ["精酿烈酒", "篮球鞋", "跑鞋", "厚底靴", "皮鞋", "手表类", "齿项链类"],
+    "北极熊-弗拉基米尔": ["墨镜类", "酒葫芦", "烈酒", "精酿烈酒", "拖鞋", "凉鞋", "蛋白粉"],
+    "鳄鱼-克兰奇": ["齿项链类", "兴奋剂", "特调香水", "扳手", "钉锤", "水果刀", "毁灭者", "玻璃匕首"],
+    "黑熊-亨利": ["篮球鞋", "跑鞋", "华夫饼", "奶油华夫饼", "焦糖棒", "土豆披萨", "超辣泡面", "焦糖威化饼干"],
+    "斑鬣狗-文森特": ["墨镜类", "蘑菇兴奋剂", "《花花世界》（全新）", "马女郎海报", "随身听", "红头巾", "发霉的面包", "齿项链类", "剪刀"],
+    "疣猪-哈库拉": ["墨镜类", "齿项链类", "奶油华夫饼", "兴奋剂", "啤酒", "超辣泡面", "《花花世界》（全新）", "《花花世界》（看过）", "钉锤", "冰啤酒"],
+    "猩猩-凯撒": ["厚底靴", "皮鞋", "手表类", "咖啡粉", "精美的画作"],
+    "山魈-拉斐尔": ["厚底靴", "皮鞋", "近视眼镜", "反光眼镜", "防摔眼镜", "手表类", "茶包", "计算器"],
+    "蜜獾-麦克斯": ["齿项链类", "薄荷卷", "精致叶卷", "蛋白粉", "钉锤", "毁灭者"],
+    "鹿豚-理查德": ["齿项链类", "扳手", "钉锤", "螺丝刀", "精酿烈酒", "精致叶卷", "薄荷卷", "香皂", "手工香皂"],
+    "食蚁兽-费尔南多": ["厚底靴", "皮鞋", "橡胶手套", "近视眼镜", "反光眼镜", "防摔眼镜", "手表类", "酸奶", "超辣泡面", "特调香水"],
+    "海獭-菲尔": ["拖鞋", "凉鞋", "护身符类", "曲奇饼干", "酸奶", "香皂", "手工香皂", "精美的画作", "肥皂", "复合维生素片"],
+    "浣熊-面条": ["墨镜类", "球帽类", "黑桃A", "焦糖棒", "超辣泡面", "焦糖威化饼干"],
+    "兔子-怀特": ["电子表类", "黑桃A", "兔女郎海报", "汤匙", "磨损汤匙"],
+    "驴子-山姆": ["护身符类", "随身听", "特调香水", "紫鸢花", "花束"],
+    "老虎-约翰": ["薄荷卷", "精致叶卷", "金龟子一般"],
+    "貘-米格尔": ["黑手", "手表类", "《死灵之书》", "安眠药", "镇静剂"],
+    "鬣蜥-皮克曼": ["齿项链类", "《死灵之书》", "胡乱的涂鸦", "水果刀", "毁灭者", "钉锤", "发霉的面包", "蘑菇", "兴奋剂"],
+    "山羊-威尔伯": ["《死灵之书》", "钉子", "钉锤", "不喜欢金龟子"],
+    "树蛙-格雷": ["拖鞋", "凉鞋", "镀金手表", "电子表", "多功能手表", "肥皂", "香皂", "手工香皂", "精美的画作"],
+    "长颈鹿-吉米": ["偏光太阳镜", "极客墨镜", "手表类", "《花花世界》（全新）", "焦糖威化饼干", "焦糖棒"],
+    "穿山甲-林": ["头带类", "护身符类", "茶包", "超辣泡面", "双节棍", "皮带", "运动腰带"],
+    "鸭嘴兽-泰瑞": ["厚底靴", "皮鞋", "近视眼镜", "反光眼镜", "防摔眼镜", "手表类", "酸奶", "肥皂", "香皂", "手工香皂", "计算器", "皮带"],
+    "环尾狐猴-罗伯特": ["随身听", "一把咖啡豆", "咖啡粉", "掌上游戏机"],
+    "灰猫-班姆": ["黑桃A", "薄荷叶", "精酿烈酒", "猫女郎海报", "复合维生素片"],
+    "水豚-伯纳德": ["拖鞋", "凉鞋", "墨镜类", "球帽类", "手表类", "咖啡粉"],
+    "狐獴-泰迪": ["近视眼镜", "反光眼镜", "防摔眼镜", "安眠药", "镇静剂"],
+    "熊猫-老李": ["黑桃A", "烈酒", "精酿烈酒", "茶包"],
+    "驯鹿-鲁道夫": ["篮球鞋", "拖鞋", "墨镜类", "口香糖", "酸奶"],
+    "袋鼠-乔瑟夫": ["篮球鞋", "拖鞋", "薄荷卷", "精致叶卷", "蛋白粉"],
+    "赛马-雷伊": ["紫鸢花", "精酿烈酒", "香皂", "花束", "手工香皂", "精美的画作", "墨镜类", "随身听"],
+    "猞猁-克里斯": ["黑手", "泻药", "纸鹤", "彩绘纸鹤", "香皂", "手工香皂", "红头巾"],
+    "象龟-威廉姆": ["近视眼镜", "反光眼镜", "防摔眼镜", "手表类", "护身符类", "精酿烈酒", "咖啡粉"],
+    "树獭-蒂姆": ["厚底靴", "皮鞋", "近视眼镜", "反光眼镜", "防摔眼镜", "手表类", "计算器", "茶包", "圆珠笔", "小块皂石"],
+    "考拉-凯文": ["手表类", "随身听", "黑桃A", "《花花世界》（全新）", "计算器", "啤酒", "掌上游戏机", "硬币", "冰啤酒", "特调香水"],
+    "臭鼬-沃尔特": ["近视眼镜", "反光眼镜", "防摔眼镜", "护身符类", "酒精灯", "香皂", "手工香皂", "自制口罩", "特调香水"],
+    "负鼠-埃迪": ["橡胶手套", "随身听", "掌上游戏机"],
+    "狐狸-托马斯": ["纸鹤", "彩绘纸鹤", "茶包", "长螺丝", "简单画", "香皂", "随身听", "紫鸢花", "焦糖棒", "狐女郎海报", "圆珠笔", "铅笔"],
+    "黑豹-鲍勃": ["薄荷叶", "蛋白粉", "开锁器", "香皂", "薄荷卷", "止疼片", "茶包", "随身听", "钉锤", "猫女郎海报", "篮球鞋", "偏光太阳镜", "多功能表"]
+  };
 
-            const results = [];
-            const queryLower = query.toLowerCase();
+  const searchInput = document.getElementById("searchInput");
+  const clearBtn = document.getElementById("clearBtn");
+  const resultsContainer = document.getElementById("resultsContainer");
+  const resultsBody = document.getElementById("resultsBody");
+  const resultsCount = document.getElementById("resultsCount");
+  const noResults = document.getElementById("noResults");
 
-            // 搜索逻辑：在key和value中查找包含查询内容的数据
-            for (const [key, values] of Object.entries(searchData)) {
-                const keyMatch = key.toLowerCase().includes(queryLower);
-                const valueMatch = values.some(value => 
-                    value.toLowerCase().includes(queryLower)
-                );
+  // 高亮匹配文本的函数
+  function highlightText(text, searchTerm) {
+    if (!searchTerm) return text;
+    const regex = new RegExp(`(${searchTerm})`, "gi");
+    return text.replace(regex, "<span class=\"highlight\">$1</span>");
+  }
 
-                if (keyMatch || valueMatch) {
-                    results.push({ key, values });
-                }
-            }
+  // 搜索函数
+  function performSearch(query) {
+    if (!query.trim()) {
+      resultsContainer.style.display = "none";
+      return;
+    }
 
-            displayResults(results, query);
-        }
+    const results = [];
+    const queryLower = query.toLowerCase();
 
-        // 显示搜索结果
-        function displayResults(results, query) {
-            resultsBody.innerHTML = '';
-            
-            if (results.length === 0) {
-                resultsContainer.style.display = 'block';
-                noResults.style.display = 'block';
-                resultsCount.textContent = '找到 0 个结果';
-                return;
-            }
+    // 搜索逻辑：在key和value中查找包含查询内容的数据
+    for (const [key, values] of Object.entries(searchData)) {
+      const keyMatch = key.toLowerCase().includes(queryLower);
+      const valueMatch = values.some(value =>
+        value.toLowerCase().includes(queryLower)
+      );
 
-            noResults.style.display = 'none';
-            resultsCount.textContent = `找到 ${results.length} 个结果`;
+      if (keyMatch || valueMatch) {
+        results.push({ key, values });
+      }
+    }
 
-            results.forEach(({ key, values }) => {
-                const row = document.createElement('tr');
-                
-                // 键名列
-                const keyCell = document.createElement('td');
-                keyCell.className = 'key-column';
-                keyCell.innerHTML = highlightText(key, query);
-                
-                // 值列
-                const valueCell = document.createElement('td');
-                valueCell.className = 'value-column';
-                
-                const valueItems = values.map(value => 
-                    `<span class="value-item">${highlightText(value, query)}</span>`
-                ).join('');
-                
-                valueCell.innerHTML = valueItems;
-                
-                row.appendChild(keyCell);
-                row.appendChild(valueCell);
-                resultsBody.appendChild(row);
-            });
+    displayResults(results, query);
+  }
 
-            resultsContainer.style.display = 'block';
-        }
+  // 显示搜索结果
+  function displayResults(results, query) {
+    resultsBody.innerHTML = "";
 
-        // 输入事件监听
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value;
-            performSearch(query);
-            
-            // 显示/隐藏清除按钮
-            clearBtn.style.display = query ? 'block' : 'none';
-        });
+    if (results.length === 0) {
+      resultsContainer.style.display = "block";
+      noResults.style.display = "block";
+      resultsCount.textContent = "找到 0 个结果";
+      return;
+    }
 
-        // 清除按钮功能
-        clearBtn.addEventListener('click', () => {
-            searchInput.value = '';
-            clearBtn.style.display = 'none';
-            resultsContainer.style.display = 'none';
-            searchInput.focus();
-        });
+    noResults.style.display = "none";
+    resultsCount.textContent = `找到 ${results.length} 个结果`;
 
-        // 键盘事件
-        searchInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                searchInput.value = '';
-                clearBtn.style.display = 'none';
-                resultsContainer.style.display = 'none';
-            }
-        });
+    results.forEach(({ key, values }) => {
+      const row = document.createElement("tr");
 
-        // 页面加载完成后聚焦输入框
-        window.addEventListener('load', () => {
-            searchInput.focus();
-        });
-    </script>
+      // 键名列
+      const keyCell = document.createElement("td");
+      keyCell.className = "key-column";
+      keyCell.innerHTML = highlightText(key, query);
+
+      // 值列
+      const valueCell = document.createElement("td");
+      valueCell.className = "value-column";
+
+      const valueItems = values.map(value =>
+        `<span class="value-item">${highlightText(value, query)}</span>`
+      ).join("");
+
+      valueCell.innerHTML = valueItems;
+
+      row.appendChild(keyCell);
+      row.appendChild(valueCell);
+      resultsBody.appendChild(row);
+    });
+
+    resultsContainer.style.display = "block";
+  }
+
+  // 输入事件监听
+  searchInput.addEventListener("input", (e) => {
+    const query = e.target.value;
+    performSearch(query);
+
+    // 显示/隐藏清除按钮
+    clearBtn.style.display = query ? "block" : "none";
+  });
+
+  // 清除按钮功能
+  clearBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    clearBtn.style.display = "none";
+    resultsContainer.style.display = "none";
+    searchInput.focus();
+  });
+
+  // 键盘事件
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      searchInput.value = "";
+      clearBtn.style.display = "none";
+      resultsContainer.style.display = "none";
+    }
+  });
+
+  // 页面加载完成后聚焦输入框
+  window.addEventListener("load", () => {
+    searchInput.focus();
+  });
+</script>
 </body>
 </html>
